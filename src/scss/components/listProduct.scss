@@ -1,0 +1,844 @@
+.list-panel {
+    padding-top: 24px;
+    overflow: auto;
+}
+.product-list-section {
+    margin-left: 24px;
+    margin-right: 24px;
+}
+.list {
+    border-radius: 4px;
+    box-shadow: 0 0 0 1px #e5e5e5;
+}
+.product-and-pagination-wrap {
+    margin-bottom: 24px;
+}
+.product-list-container {
+    display: table;
+    width: 100%;
+}
+.no-result {
+    margin-bottom: 24px;
+}
+.product-list-view {
+    position: relative;
+    background: #fff;
+    -webkit-transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
+}
+.product-list-item {
+    display: flex;
+    align-items: flex-start;
+}
+
+.product-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.product-list-header {
+    color: #999;
+    background: #f6f6f6;
+    padding: 11px 0;
+    user-select: none;
+}
+.shopee-checkbox {
+    font-size: 0;
+}
+
+.product-checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+}
+.product-checkbox {
+    height: auto !important;
+}
+.product-list-item__td {
+    margin-right: 16px;
+}
+.product-main {
+    display: flex;
+    justify-content: flex-start;
+    min-width: 239px;
+    max-width: 239px;
+    cursor: pointer;
+}
+
+.product-list-header-item {
+    border: none !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    align-items: flex-start !important;
+}
+.product-list-item__td {
+    margin-right: 16px;
+}
+.product-filter-card {
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+.filter-form-box {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+}
+.actions {
+    font-size: 0;
+    width: 100%;
+}
+.filter-col-left {
+    flex: 1;
+    min-width: 0;
+}
+.filter-col-right {
+    margin-left: 24px;
+    flex: 1;
+    min-width: 0;
+}
+.shopee-form-item__label {
+    flex-shrink: 0;
+    padding: 8px 0;
+    margin-right: 16px;
+    line-height: 16px;
+    box-sizing: border-box;
+}
+.shopee-form-item__label {
+    text-align: right;
+}
+.shopee-form-item__label {
+    display: none;
+}
+.shopee-form-item__label {
+    width: 200px;
+}
+
+.shopee-form-item__label {
+    width: 75px;
+}
+.connector {
+    display: inline-block;
+    width: 8px;
+    height: 1px;
+    margin: 16px 8px;
+    padding: 0;
+    background-color: #999;
+}
+.shopee-form-item {
+    display: flex;
+    margin-bottom: 24px;
+    font-size: 14px;
+    transition: margin-bottom 0s 0.2s;
+}
+.shopee-form-item__control {
+    width: 100%;
+}
+.shopee-form-item__control {
+    position: relative;
+}
+.shopee-form-item__content {
+    width: auto;
+    display: flex;
+    margin-left: 0;
+}
+.shopee-form-item__content {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    flex: 1;
+    line-height: 32px;
+}
+.shopee-select {
+    width: 100%;
+}
+.shopee-input-group {
+    display: flex;
+    flex: 1;
+}
+.shopee-input-group__prepend {
+    width: 152px;
+    .shopee-select {
+        width: 100%;
+    }
+
+    .shopee-select {
+        display: inline-block;
+        width: 100%;
+    }
+}
+.shopee-input-group__append {
+    flex: 1;
+    .shopee-input {
+        flex: 1;
+    }
+
+    .shopee-input {
+        line-height: 0;
+    }
+}
+.shopee-selector {
+    border-right: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.shopee-selector {
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    outline: none;
+    transition: border 0.2s ease-in-out;
+    position: relative;
+    display: inline-table;
+    width: 100%;
+    padding: 7px 12px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #333;
+    cursor: pointer;
+    background-color: #fff;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-sizing: border-box;
+}
+.line-clamp--2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+.shopee-selector__suffix {
+    padding-left: 8px;
+    .shopee-icon {
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+    }
+
+    .shopee-icon {
+        box-sizing: content-box;
+    }
+    .shopee-icon {
+        display: inline-block;
+        line-height: 0;
+        fill: currentColor;
+    }
+}
+
+.shopee-selector__suffix {
+    position: relative;
+    display: table-cell;
+    width: 1px;
+    height: 100%;
+    line-height: 0;
+    color: #b7b7b7;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.shopee-selector__inner {
+    font-size: 14px;
+    line-height: 16px;
+}
+.shopee-selector {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.shopee-input__inner {
+    position: relative;
+    display: inline-table;
+    width: 100%;
+    height: 32px;
+    padding: 0 12px;
+    font-size: 14px;
+    background-color: #fff;
+    border-collapse: separate;
+    border-spacing: 0;
+    box-sizing: border-box;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    outline: none;
+    transition: border 0.2s ease-in-out;
+}
+.shopee-form-item {
+    margin-bottom: 16px;
+}
+.shopee-form-item {
+    display: flex;
+    margin-bottom: 24px;
+    font-size: 14px;
+    transition: margin-bottom 0s 0.2s;
+    .shopee-form-item__control {
+        width: 100%;
+    }
+
+    .shopee-form-item__control {
+        position: relative;
+
+        .shopee-form-item__content {
+            display: flex;
+            align-items: center;
+            align-self: flex-start;
+            flex: 1;
+            line-height: 32px;
+        }
+        .shopee-form-item__content {
+            margin-left: 0;
+        }
+    }
+}
+.shopee-input__inner {
+    padding-right: 0;
+}
+.shopee-input {
+    flex: 1;
+}
+.shopee-input {
+    line-height: 0;
+}
+.interim-line {
+    display: inline-block;
+    width: 8px;
+    height: 1px;
+    background-color: #999;
+    margin: 0 8px;
+}
+.shopee-input__inner {
+    position: relative;
+    display: inline-table;
+    width: 100%;
+    height: 32px;
+    padding: 0 12px;
+    font-size: 14px;
+    background-color: #fff;
+    border-collapse: separate;
+    border-spacing: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    outline: none;
+    -webkit-transition: border 0.2s ease-in-out;
+    transition: border 0.2s ease-in-out;
+}
+.category-input-wrapper {
+    width: 100%;
+    padding: 0 12px;
+    border: 1px solid #e8e8e8;
+    border-radius: 2px;
+}
+.category-input {
+    height: 32px;
+}
+.placeholder {
+    color: #bbb;
+}
+.category-input {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    overflow: hidden;
+    line-height: 30px;
+}
+.shopee-form-item {
+    margin-bottom: 16px;
+}
+.stock {
+    display: flex;
+}
+.hover-pointer {
+    cursor: pointer;
+}
+.category-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    display: flex;
+}
+.shopee-button {
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    min-width: 72px;
+    padding: 0 16px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    user-select: none;
+}
+.edit-btn {
+    font-size: inherit;
+    color: #666;
+}
+html.VN,
+html.VN button {
+    font-family: Helvetica Neue, Helvetica, RobotoRegular, Droid Sans, Arial, sans-serif;
+}
+.shopee-button--link {
+    color: #2673dd;
+    background-color: transparent;
+    border-color: transparent;
+    height: unset;
+    min-width: unset;
+    padding: 0;
+    font-weight: 400;
+}
+.shopee-button .shopee-icon {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}
+.shopee-icon {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.shopee-icon {
+    display: inline-block;
+    line-height: 0;
+    fill: currentColor;
+}
+.shopee-button:before {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    left: -1px;
+    border-radius: inherit;
+    content: "";
+}
+.shopee-button {
+    color: #333;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    min-width: 72px;
+    padding: 0 16px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    user-select: none;
+}
+
+.shopee-button--primary {
+    color: #fff !important;
+    background-color: #ee4d2d !important;
+    border-color: #ee4d2d !important;
+}
+
+.title-box {
+    display: flex;
+    align-items: center;
+}
+.right {
+    display: flex;
+    align-items: center;
+    align-content: flex-start;
+    justify-content: flex-end;
+    .bi-action {
+        padding-right: 6px;
+        .shopee-badge-x {
+            position: relative;
+            display: inline-block;
+            font-size: 0;
+            vertical-align: middle;
+            .shopee-badge-x__sup {
+                display: inline-block;
+                padding: 0 4px;
+                font-size: 12px;
+                line-height: 12px;
+                color: #fff;
+                text-align: center;
+                white-space: nowrap;
+                background-color: #ee4d2d;
+                border: 1px solid #fff;
+                border-radius: 10px;
+                box-sizing: border-box;
+            }
+            .shopee-badge-x__sup--fixed {
+                position: absolute;
+                top: 0;
+                right: 10px;
+                transform: translateY(-50%) translateX(100%);
+            }
+            .shopee-badge-x__sup--fixed {
+                top: -4px;
+            }
+
+            .shopee-badge-x__sup--beta,
+            .shopee-badge-x__sup--hot,
+            .shopee-badge-x__sup--new {
+                right: unset;
+                left: 100%;
+                padding: 2px;
+                font-size: 10px;
+                background-image: linear-gradient(270deg, #ff815c 9%, #ee4d2d 91%);
+                border-radius: 9px 3px 9px 9px;
+                transform: translateY(-50%) translateX(-50%);
+            }
+        }
+    }
+    .add-action,
+    .batch-action {
+        margin-left: 16px;
+    }
+    .shopee-dropdown {
+        position: relative;
+        display: inline-block;
+    }
+    .view-modes,
+    .view-radio {
+        position: relative;
+        display: flex;
+        align-items: center;
+    }
+    .view-modes {
+        margin-left: 16px;
+        height: 40px;
+        padding: 4px;
+        border-radius: 4px;
+        background-color: #f5f5f5;
+        .view-radio.active {
+            background-color: #fff;
+            fill: #ee4d2d;
+        }
+
+        .view-radio {
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 2px;
+            fill: #999;
+            cursor: pointer;
+        }
+        .view-modes,
+        .view-radio {
+            position: relative;
+            display: flex;
+            align-items: center;
+            .grid-view,
+            .list-view {
+                width: 16px;
+                height: 16px;
+                line-height: 0;
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+}
+.grid-left {
+    flex: 1;
+    min-width: 0;
+}
+.page-title {
+    margin-right: 16px;
+    padding: 7px 0;
+    font-size: 22px;
+    font-weight: 500;
+    text-transform: capitalize;
+    white-space: nowrap;
+}
+.list-percent-bar {
+    margin-right: 8px;
+}
+.list-percent-box,
+.percent-bar {
+    display: flex;
+    min-width: 126px;
+}
+.prodcut-list-header {
+    margin-bottom: 24px;
+}
+.percent-bar {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    position: relative;
+    padding: 1px;
+    height: 24px;
+    color: #fff;
+    border: 1px solid #00bfa5;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.list-percent-box,
+.percent-bar {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    min-width: 126px;
+}
+.percent-bar__bg {
+    max-width: 100%;
+    height: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: rgba(0, 191, 165, 0.2);
+}
+.percent-bar__text {
+    color: #00bfa5;
+    padding-left: 16px;
+    padding-right: 16px;
+    white-space: nowrap;
+}
+.product-variation-header,
+.product-variation-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+.product-variation {
+    width: 631px;
+    min-width: 631px;
+    padding: 0;
+}
+.product-list-header .shopee-order-group {
+    line-height: inherit;
+}
+.shopee-ordering {
+    position: relative;
+    margin-left: 2px;
+    width: 8px;
+    height: 16px;
+}
+
+.shopee-order-tip,
+.shopee-ordering {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.shopee-order-asc {
+    -webkit-transform: translateY(-20%);
+    transform: translateY(-20%);
+}
+.order-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: -4px;
+    top: 0;
+    color: #999;
+}
+.shopee-icon {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.shopee-icon {
+    display: inline-block;
+    line-height: 0;
+    fill: currentColor;
+}
+.shopee-order-dsc {
+    -webkit-transform: translateY(20%);
+    transform: translateY(20%);
+}
+.order-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    left: -4px;
+    top: 0;
+    color: #999;
+}
+.shopee-icon {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.shopee-icon {
+    display: inline-block;
+    line-height: 0;
+    fill: currentColor;
+}
+.product-no-result {
+    padding: 130px 0;
+    text-align: center;
+    .sprites-ach-failed,
+    .sprites-product-list-no-product {
+        background-size: 169px 75px;
+        background-repeat: no-repeat;
+    }
+
+    .sprites-product-list-no-product {
+        display: inline-block;
+        background-image: url(https://deo.shopeemobile.com/shopee/shopee-seller-live-sg/rootpages/static/modules/product/image/sprite.src.pages.Index.57e126d.png);
+        background-position: 0 0;
+        width: 101px;
+        height: 75px;
+    }
+}
+.product-no-result .text {
+    width: 100%;
+    font-size: 12px;
+    color: #bababa;
+}
+.shopee-input__input {
+    height: 30px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.shopee-input input,
+.shopee-input textarea {
+    font-family: inherit;
+}
+.shopee-input__input {
+    display: table-cell;
+    width: 100%;
+    padding: 0;
+    color: #333;
+    vertical-align: middle;
+    background-color: inherit;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+.shopee-input__input {
+    height: 30px;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.shopee-input__input {
+    padding-right: 12px;
+}
+.shopee-input input,
+.shopee-input textarea {
+    font-family: inherit;
+}
+.shopee-input__input {
+    display: table-cell;
+    width: 100%;
+    padding: 0;
+    color: #333;
+    vertical-align: middle;
+    background-color: inherit;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+.shopee-input__suffix {
+    padding-left: 0;
+}
+
+.shopee-input__suffix {
+    padding-left: 8px;
+}
+.shopee-input__prefix,
+.shopee-input__suffix {
+    position: relative;
+    display: table-cell;
+    width: 1px;
+    height: 100%;
+    line-height: 0;
+    color: #999;
+    white-space: nowrap;
+    vertical-align: middle;
+    .shopee-number-input__controls {
+        position: absolute;
+        top: 0;
+        right: -10px;
+        display: inline-block;
+        width: 24px;
+        height: 100%;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        background: #fff;
+        border-left: 1px solid #e5e5e5;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        .up {
+            top: 0;
+            .shopee-icon {
+                top: 45%;
+            }
+        }
+
+        .shopee-number-input__control {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            overflow: hidden;
+            line-height: 16px;
+            transition: opacity 0.2s ease-in-out;
+
+            .shopee-icon {
+                position: absolute;
+                left: 50%;
+                width: 16px;
+                height: 16px;
+                transform: translate(-50%, -50%);
+                box-sizing: initial;
+                transition: transform 0.2s;
+                user-select: none;
+                fill: #333;
+            }
+        }
+        .down {
+            bottom: 0;
+            .shopee-icon {
+                top: 55%;
+            }
+        }
+
+        .shopee-number-input__control {
+            position: absolute;
+            width: 100%;
+            height: 50%;
+            overflow: hidden;
+            line-height: 16px;
+            -webkit-transition: opacity 0.2s ease-in-out;
+            transition: opacity 0.2s ease-in-out;
+
+            .shopee-icon {
+                position: absolute;
+                left: 50%;
+                width: 16px;
+                height: 16px;
+                transform: translate(-50%, -50%);
+                box-sizing: initial;
+                transition: transform 0.2s;
+                user-select: none;
+                fill: #333;
+            }
+        }
+    }
+}

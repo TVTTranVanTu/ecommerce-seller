@@ -1,0 +1,203 @@
+.page-tabs {
+    position: relative;
+    margin: 16px auto;
+}
+.shopee-tabs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.shopee-tabs-top .shopee-tabs__nav {
+    margin-bottom: 16px;
+}
+.shopee-tabs__nav {
+    position: relative;
+    font-size: 14px;
+    line-height: 16px;
+    color: #333;
+    white-space: nowrap;
+}
+.shopee-tabs__nav-warp {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+.shopee-tabs__nav-tabs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 0;
+    -ms-flex: none;
+    flex: none;
+}
+.shopee-tabs-top.shopee-tabs-card .shopee-tabs__nav-tab.active {
+    border-bottom-color: transparent;
+}
+
+.shopee-tabs-bottom.shopee-tabs-card .shopee-tabs__nav-tab:not(:last-child),
+.shopee-tabs-top.shopee-tabs-card .shopee-tabs__nav-tab:not(:last-child) {
+    margin-right: 4px;
+}
+.shopee-tabs-top.shopee-tabs-card .shopee-tabs__nav-tab {
+    border-radius: 4px 4px 0 0;
+}
+.shopee-tabs-bottom:not(.shopee-tabs-line) .shopee-tabs__nav-tab,
+.shopee-tabs-top:not(.shopee-tabs-line) .shopee-tabs__nav-tab {
+    display: inline-block;
+    vertical-align: middle;
+}
+.shopee-tabs-card .shopee-tabs__nav-tab.active {
+    color: #ee4d2d;
+    background-color: #fff;
+}
+.shopee-tabs-card .shopee-tabs__nav-tab {
+    height: 40px;
+    padding: 10px 16px;
+    color: #666;
+    background-color: #f6f6f6;
+    border: 1px solid #e5e5e5;
+}
+.shopee-tabs__nav-tab.active {
+    font-weight: 600;
+    color: #ee4d2d;
+}
+.shopee-tabs__nav-tab {
+    text-decoration: none;
+    cursor: pointer;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
+}
+.page-tabs .suspended-history {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 40px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #2673dd;
+    cursor: pointer;
+}
+.page-tabs .suspended-history .suspended-history-icon {
+    position: relative;
+    height: 16px;
+    width: 16px;
+}
+.shopee-icon {
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+}
+.shopee-icon {
+    display: inline-block;
+    line-height: 0;
+    fill: currentColor;
+}
+
+.filter {
+    margin-bottom: 16px;
+}
+.banned-search-container {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex: 1 1;
+}
+.filter .btns {
+    margin-left: 16px;
+    font-size: 0;
+}
+.shopee-input-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.banned-search-container .banned-search-violation {
+    margin: 0 0 0 40px;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.banned-search-container .banned-search-violation,
+.banned-search-container {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.filter .btns .reset-btn {
+    margin-left: 16px;
+}
+.banned-search-container .banned-search-violation .banned-search-violation-label {
+    margin-right: 8px;
+    white-space: nowrap;
+    font-size: 14px;
+    line-height: 16px;
+}
+.banned-search-container .banned-search-violation .banned-search-violation-select {
+    position: relative;
+    width: 325px;
+}
+.product-list-header.product-list-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+}
+.product-list-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+.shopee-option.selected {
+    font-weight: 500;
+    color: #ee4d2d;
+}
+.shopee-option {
+    position: relative;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 16px;
+    color: #333;
+    word-break: break-word;
+    word-wrap: break-word;
+    list-style: none;
+    cursor: pointer;
+}
+.shopee-select__menu {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    font-weight: 400;
+    line-height: 0;
+    color: #333;
+    background: #fff;
+    border-radius: 4px;
+    max-width: 440px;
+    max-height: 218px;
+    min-width: 152px;
+}

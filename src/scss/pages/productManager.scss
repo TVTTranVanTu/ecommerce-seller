@@ -1,0 +1,89 @@
+.product-list {
+    margin: 0 auto;
+    width: 1104px;
+    background: #f6f6f6;
+    margin-top: 20px;
+    .product-list-main {
+        .fixed-top-card {
+            .fixed-container {
+                top: 56px;
+                z-index: 1000;
+                .portal-panel {
+                    width: 1104px;
+                    height: 56px;
+                    background: #fff;
+                    box-shadow: 0 1px 0 0 #e5e5e5;
+                    .shopee-tabs {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    .tabs {
+                        display: flex;
+                        flex-wrap: nowrap;
+                        align-content: flex-start;
+                        justify-content: flex-start;
+                        padding: 0 24px;
+                        height: 100%;
+                        .shopee-tabs__nav {
+                            margin-bottom: 16px;
+                        }
+                        .shopee-tabs__nav {
+                            position: relative;
+                            font-size: 14px;
+                            line-height: 16px;
+                            color: #333;
+                            white-space: nowrap;
+                            .shopee-tabs__nav-warp {
+                                position: relative;
+                                display: flex;
+                                width: 100%;
+                                overflow: hidden;
+                                .shopee-tabs__nav-tabs {
+                                    display: flex;
+                                    flex: none;
+
+                                    .active {
+                                        font-weight: 600;
+                                        color: #ee4d2d;
+                                    }
+
+                                    .shopee-tabs__nav-tab {
+                                        text-decoration: none;
+                                        cursor: pointer;
+                                        box-sizing: border-box;
+                                        transition: color 0.2s ease-in-out;
+                                    }
+                                    .shopee-tabs__nav-tab {
+                                        display: flex;
+                                        align-items: center;
+                                        height: 56px;
+                                        padding: 0 16px;
+                                        overflow: hidden;
+                                        text-align: center;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    .shopee-tabs__ink-bar,
+                    .shopee-tabs__nav:before {
+                        bottom: 0;
+                    }
+
+                    .shopee-tabs-bottom .shopee-tabs__ink-bar,
+                    .shopee-tabs-top .shopee-tabs__ink-bar {
+                        left: 0;
+                        height: 3px;
+                        transition: transform 0.2s ease-in-out, width 0.2s ease-in-out;
+                    }
+                    .shopee-tabs__ink-bar {
+                        position: absolute;
+                        z-index: 1;
+                        background-color: #ee4d2d;
+                        transform: translateZ(0);
+                    }
+                }
+            }
+        }
+    }
+}

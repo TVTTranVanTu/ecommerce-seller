@@ -1,0 +1,90 @@
+.sidebar-container {
+    width: 220px;
+    background: #fff;
+    .sidebar {
+        top: 0;
+        width: inherit;
+        left: 0;
+        min-height: calc(100vh - 56px);
+        overflow: hidden;
+        background-color: #fff;
+        .sidebar-menu {
+            padding: 16px 16px 0;
+            background-color: #fff;
+            .sidebar-menu-box {
+                margin-bottom: 24px;
+                .sidebar-menu-item {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: flex-start;
+                    color: #999;
+                    cursor: pointer;
+                    padding: 5px 0;
+                    .sidebar-menu-item-icon {
+                        color: #a2a2a4;
+                        width: 16px;
+                        height: 16px;
+                        margin-right: 8px;
+                    }
+                    .sidebar-menu-item-text {
+                        font-size: 14px;
+                        font-weight: 500;
+                        line-height: 18px;
+                        max-width: 140px;
+                    }
+                    .sidebar-menu-item-space {
+                        flex: 1 0 8px;
+                    }
+                    .sidebar-menu-item-collapse {
+                        width: 16px;
+                        height: 16px;
+                        transition: transform 0.2s ease;
+                    }
+                }
+                .sidebar-menu-item:hover {
+                    .sidebar-menu-item-collapse {
+                        color: #e84f20;
+                    }
+                }
+                .sidebar-submenu {
+                    padding-left: 24px;
+                    overflow: hidden;
+                    transition: height 0.2s ease;
+                    .sidebar-submenu-item {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        color: #333;
+                        font-size: 13px;
+                        line-height: 18px;
+                        padding: 5px 0;
+                        .sidebar-submenu-item-link {
+                            color: inherit;
+                            width: 100%;
+                        }
+                        .sidebar-submenu-item-link:hover {
+                            color: #e84f20;
+                        }
+                        .sidebar-new {
+                            width: 29px;
+                            height: 16px;
+                            color: #fff;
+                            font-size: 10px;
+                            line-height: 16px;
+                            padding: 1px 3px;
+                            margin-left: 5px;
+                            background-image: linear-gradient(270deg, #fe9373 9%, #ee4d2d 91%);
+                            border-radius: 9px 2px 9px 9px;
+                        }
+                        .sidebar-new:before {
+                            content: "New";
+                        }
+                    }
+                }
+                .hidden {
+                    display: none;
+                }
+            }
+        }
+    }
+}

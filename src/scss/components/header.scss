@@ -1,0 +1,278 @@
+.header-bar {
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    min-height: 56px;
+    max-height: 56px;
+    z-index: 6666;
+    background-color: #fff;
+    .header-content {
+        display: flex;
+        width: 100vw;
+        margin: auto;
+        min-height: 56px;
+        max-height: 56px;
+        .header-logo {
+            position: relative;
+            margin-top: 10px;
+            margin-left: 16px;
+            width: 97px;
+            height: 30px;
+            svg {
+                fill: #ee4d2d;
+            }
+        }
+        .content-box {
+            display: flex;
+            align-items: center;
+            margin: 2px 0 0 5px;
+            flex: 1;
+            .breadcrumb-text {
+                color: #1d1d1d;
+                font-size: 18px;
+                text-decoration: none;
+            }
+        }
+        .info {
+            position: relative;
+            .popover {
+                display: inline-block;
+                .popover-ref {
+                    display: inline-block;
+                    .account-info__box {
+                        position: relative;
+                        padding: 8px 16px 8px 0;
+                        .account-info {
+                            display: flex;
+                            align-items: center;
+                            height: 40px;
+                            padding: 4px 16px 4px 4px;
+                            box-sizing: border-box;
+                            color: #333;
+                            cursor: pointer;
+                            .account-avatar {
+                                width: 32px;
+                                height: 32px;
+                                margin-right: 8px;
+                                border-radius: 50%;
+                            }
+                            img {
+                                user-select: none;
+                            }
+                            .account-name {
+                                min-width: 64px;
+                                font-size: 14px;
+                                color: #333;
+                            }
+                        }
+                        .account-info::after {
+                            content: "";
+                            top: 12px;
+                            right: 0;
+                            position: absolute;
+                            width: 1px;
+                            height: 32px;
+                            background-color: #e8e8e8;
+                        }
+                    }
+                }
+
+                .popper {
+                    color: #333;
+                    background-color: #fff;
+                    max-width: 300px;
+                    position: absolute;
+                    z-index: 1;
+                    will-change: top, left;
+                    transform-origin: center top;
+                    display: none;
+                    top: 56px;
+                    left: 27px;
+                    transition: all 0.2s;
+                    .popover__content {
+                        background-color: inherit;
+                        border-radius: 4px;
+                        padding: 0;
+                        .account-dropdown {
+                            margin: 0;
+                            padding: 0;
+                        }
+                        .account-dropdown-item {
+                            display: flex;
+                            align-items: center;
+                            height: 40px;
+                            z-index: 999;
+                            padding: 12px 16px;
+                            box-sizing: border-box;
+                            color: #333;
+                            cursor: pointer;
+                            .icon {
+                                width: 18px;
+                                height: 18px;
+                                margin-right: 8px;
+                            }
+                            .text {
+                                width: 100%;
+                                max-width: 100%;
+                                white-space: nowrap;
+                                text-overflow: ellipsis;
+                            }
+                        }
+                    }
+                }
+                .headbar-account-tooltip {
+                    margin: 0 0 0 -12px !important;
+                    border: 0;
+                    padding: 0;
+                    font-size: 14px;
+                }
+            }
+            .popover:hover {
+                .popper {
+                    display: block;
+                }
+            }
+        }
+        .header-action {
+            display: flex;
+            align-items: center;
+            padding: 0 4px 0 12px;
+            margin-right: 16px;
+            .popover {
+                display: inline-block;
+                .popover__ref {
+                    display: inline-block;
+                    .dropdown-button-box {
+                        padding: 8px 0;
+                        .dropdown-button {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            width: 40px;
+                            height: 40px;
+                            font-size: 0;
+                            cursor: pointer;
+                            .dropdown-button-icon {
+                                width: 16px;
+                                height: 16px;
+                            }
+                            .icon {
+                                box-sizing: content-box;
+                            }
+                        }
+                    }
+                }
+
+                .popper {
+                    max-width: 350px;
+                    position: absolute;
+                    z-index: 1;
+                    will-change: top, left;
+                    transform-origin: center top;
+                    top: 56px;
+                    left: 1030px;
+                    display: none;
+                    color: #333;
+                    background-color: #fff;
+                    transition: all 0.2s;
+                    .popover__content {
+                        width: 350px;
+                        padding: 24px;
+                        border: 1px solid transparent;
+                        box-sizing: border-box;
+                        .category-popover-box {
+                            display: flex;
+                            justify-content: flex-start;
+                            flex-wrap: wrap;
+                            .category-item {
+                                width: 100px;
+                                padding: 10px 12px;
+                                box-sizing: border-box;
+                                cursor: pointer;
+                                .item-container {
+                                    .item-icon {
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        width: 60px;
+                                        height: 60px;
+                                        margin: 0 auto 10px;
+                                        border-radius: 50%;
+                                        background-size: 100% 100%;
+                                        svg {
+                                            width: 24px;
+                                            height: 24px;
+                                            fill: #fff;
+                                        }
+                                    }
+                                }
+                                .item-name {
+                                    display: block;
+                                    font-size: 14px;
+                                    line-height: 18px;
+                                    color: #666;
+                                    text-align: center;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .popover:hover {
+                .popper {
+                    display: block;
+                }
+            }
+            .header-notification {
+                margin: 0px 8px;
+                padding: 8px 0;
+                .notification-box {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    position: relative;
+                    width: 40px;
+                    height: 40px;
+                    cursor: pointer;
+                    .popover__ref {
+                        display: inline-block;
+                        .notification-icon-wrap {
+                            width: 40px;
+                            height: 40px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            .badge-x {
+                                position: relative;
+                                display: inline-block;
+                                font-size: 0;
+                                vertical-align: middle;
+                                .notification-icon {
+                                    display: flex;
+                                    position: relative;
+                                    width: 16px;
+                                    height: 16px;
+                                    .icon {
+                                        width: 16px;
+                                        height: 16px;
+                                        vertical-align: middle;
+                                        box-sizing: content-box;
+                                        display: inline-block;
+                                        line-height: 0;
+                                        fill: currentColor;
+                                        svg {
+                                            width: 16px;
+                                            height: 16px;
+                                            fill: #333;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

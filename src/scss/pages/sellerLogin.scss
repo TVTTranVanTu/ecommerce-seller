@@ -1,0 +1,592 @@
+.seller-login {
+    margin-top: 100px;
+    height: 100vh;
+    .container {
+        display: flex;
+        align-items: center;
+        .infor {
+            display: block;
+            width: 50%;
+            flex: 0 0 50%;
+            max-width: 50%;
+            .text {
+                font-size: 18px;
+                line-height: 24px;
+                color: #666;
+                max-width: 400px;
+                margin-top: 40px;
+                margin-bottom: 32px;
+                margin: 0 auto;
+                .title {
+                    font-size: 32px;
+                    font-weight: 500;
+                    color: #ee4d2d;
+                    line-height: 57px;
+                }
+            }
+            .image {
+                width: 100%;
+                height: 200px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-image: url(https://deo.shopeemobile.com/shopee/shopee-seller-live-sg/rootpages/static/modules/account/image/login-img.9347138.png);
+            }
+        }
+        .center {
+            flex: 0 0 12.5%;
+            width: 12.5%;
+            max-width: 12.5%;
+        }
+        .form-login {
+            flex: 0 0 37.5%;
+            width: 37.5%;
+            max-width: 37.5%;
+            .signin-panel {
+                width: 400px;
+                background-color: #fff;
+                overflow: hidden;
+                border-radius: 2px;
+                height: auto;
+                transition: height 0.5s;
+                .signin-seller {
+                    display: flex;
+                    align-items: flex-start;
+                    width: 100%;
+                    .signin-form {
+                        position: relative;
+                        padding: 32px;
+                        .signin-title {
+                            font-size: 24px;
+                            font-weight: 500;
+                            color: #000;
+                            text-align: center;
+                            margin-bottom: 32px;
+                        }
+                        .form-item {
+                            margin-bottom: 20px;
+                            .empty {
+                                display: none;
+                            }
+                            .form-item__control {
+                                width: 100%;
+                                position: relative;
+                                .input__inner--large {
+                                    padding: 0;
+                                    height: 40px;
+                                }
+                                .input__inner {
+                                    position: relative;
+                                    display: inline-table;
+                                    width: 100%;
+                                    height: 32px;
+                                    padding: 0 12px;
+                                    font-size: 14px;
+                                    background-color: #fff;
+                                    border-collapse: separate;
+                                    border-spacing: 0;
+                                    box-sizing: border-box;
+                                    border: 1px solid #e5e5e5;
+                                    border-radius: 4px;
+                                    outline: none;
+                                    transition: border 0.2s ease-in-out;
+                                }
+                                .form-item__control {
+                                    display: flex;
+                                    align-items: center;
+                                    align-self: flex-start;
+                                    flex: 1;
+                                    line-height: 32px;
+                                }
+                                .input__input {
+                                    padding: 0 12px;
+                                    height: 38px;
+                                    font-size: 14px;
+                                    border-radius: 4px;
+                                    display: table-cell;
+                                    width: 100%;
+                                    padding: 0;
+                                    color: #333;
+                                    vertical-align: middle;
+                                    background-color: inherit;
+                                    border: 0;
+                                    outline: none;
+                                    box-sizing: border-box;
+                                }
+                            }
+                            .button {
+                                color: #333;
+                                background-color: #fff;
+                                border: 1px solid #e5e5e5;
+                                position: relative;
+                                display: -webkit-inline-box;
+                                display: -ms-inline-flexbox;
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                                height: 32px;
+                                min-width: 72px;
+                                padding: 0 16px;
+                                font-family: inherit;
+                                font-size: 14px;
+                                font-weight: 500;
+                                text-decoration: none;
+                                white-space: nowrap;
+                                vertical-align: middle;
+                                cursor: pointer;
+                                border-radius: 4px;
+                                outline: none;
+                                box-sizing: border-box;
+                                transition: all 0.2s ease-in-out;
+                                appearance: none;
+                                user-select: none;
+                            }
+                            .button--large {
+                                height: 40px;
+                                min-width: 80px;
+                                padding: 0 16px;
+                                font-size: 14px;
+                            }
+                            .button--block {
+                                width: 100%;
+                            }
+                            .button--primary {
+                                color: #fff;
+                                background-color: #ee4d2d;
+                                border-color: #ee4d2d;
+                            }
+                        }
+                        .remember {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            flex: 1;
+                            margin-bottom: 24px;
+                            .checkbox {
+                                display: inline-block;
+                                font-size: 0;
+                                color: #333;
+                                cursor: pointer;
+                                user-select: none;
+                                .checkbox__input {
+                                    display: none;
+                                }
+                            }
+                            .checkbox__indicator {
+                                position: relative;
+                                display: inline-block;
+                                width: 16px;
+                                height: 16px;
+                                margin-right: 8px;
+                                vertical-align: middle;
+                                background-color: #fff;
+                                border: 1px solid #e5e5e5;
+                                border-radius: 2px;
+                                box-sizing: border-box;
+                                transition: all 0.2s ease-in-out;
+                                .icon {
+                                    position: absolute;
+                                    top: -1px;
+                                    left: -1px;
+                                    width: 16px;
+                                    height: 16px;
+                                    transform: scale(0);
+                                    transition: transform 0.2s;
+                                    fill: #fff;
+                                    box-sizing: content-box;
+                                }
+                            }
+                            .checkbox__label {
+                                display: inline-block;
+                                font-size: 14px;
+                                line-height: 16px;
+                                vertical-align: middle;
+                            }
+                            .button {
+                                color: #333;
+                                background-color: #fff;
+                                border: 1px solid #e5e5e5;
+                                position: relative;
+                                display: inline-flex;
+                                align-items: center;
+                                justify-content: center;
+                                height: 32px;
+                                min-width: 72px;
+                                padding: 0 16px;
+                                font-family: inherit;
+                                font-size: 14px;
+                                font-weight: 500;
+                                text-decoration: none;
+                                white-space: nowrap;
+                                vertical-align: middle;
+                                cursor: pointer;
+                                border-radius: 4px;
+                                outline: none;
+                                box-sizing: border-box;
+                                transition: all 0.2s ease-in-out;
+                                appearance: none;
+                                user-select: none;
+                            }
+                            .button--link {
+                                color: #2673dd;
+                                background-color: transparent;
+                                border-color: transparent;
+                                height: unset;
+                                min-width: unset;
+                                padding: 0;
+                                font-weight: 400;
+                            }
+                        }
+                        svg {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+.form {
+    padding: 20px;
+    .btn {
+        line-height: 1.5;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        white-space: nowrap;
+        background-image: none;
+        border: 1px solid transparent;
+        cursor: pointer;
+        transition: all 0.2s;
+        user-select: none;
+        touch-action: manipulation;
+        min-height: 40px;
+        padding: 0 15px;
+        border-radius: 4px;
+    }
+    .mr__bt {
+        margin-bottom: 15px;
+        text-align: center;
+        .formLogin__or {
+            border-top: 1px solid #d9d9d9;
+            margin-top: 10px;
+            text-align: center;
+            span {
+                padding: 5px 15px;
+                background-color: #fff;
+                display: inline-block;
+                transform: translateY(-15px);
+            }
+        }
+        ._1ix216 {
+            justify-content: space-between;
+            display: flex;
+            flex-wrap: wrap;
+            span {
+                width: 30%;
+                i {
+                    font-size: 20px;
+                    font-weight: 700;
+                    margin-right: 10px;
+                }
+            }
+            ._2ph_NL {
+                background-color: rgb(24, 119, 242);
+                color: rgb(255, 255, 255);
+                font-size: 0.875rem;
+                width: 100%;
+            }
+            .social-white-fb-png {
+                background-size: 372% 232%;
+                background-position: 76.4706% 15.1515%;
+            }
+            .social-white-background {
+                background-image: url("https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/a9e27c05087330a9581e4b9b39ad4417.png");
+            }
+
+            ._1JEYOo {
+                width: 1.375rem;
+                height: 1.375rem;
+            }
+            .social-white-google-png {
+                background-size: 516.667% 322.222%;
+                background-position: 100% 100%;
+            }
+            .social-white-background {
+                background-image: url("https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/a9e27c05087330a9581e4b9b39ad4417.png");
+            }
+            ._1o_kg_ {
+                width: 1.125rem;
+                height: 1.125rem;
+            }
+            .nvH7Oz {
+                background-color: rgb(0, 0, 0);
+                color: rgb(255, 255, 255);
+                font-size: 0.875rem;
+            }
+            .social-white-apple-png {
+                background-size: 290.625% 181.25%;
+                background-position: 8.19672% 19.2308%;
+            }
+            .social-white-background {
+                background-image: url("https://deo.shopeemobile.com/shopee/shopee-pcmall-live-sg/assets/a9e27c05087330a9581e4b9b39ad4417.png");
+            }
+            ._1JEYOo {
+                width: 1.375rem;
+                height: 1.375rem;
+            }
+        }
+        p {
+            align-items: center;
+            padding-top: 30px;
+            padding-right: 0.25rem;
+            color: rgba(0, 0, 0, 0.26);
+            font-size: 0.875rem;
+            span,
+            a {
+                color: #ff8917;
+                cursor: pointer;
+            }
+        }
+    }
+    .ant-btn {
+        width: 100%;
+    }
+}
+.ant-btn {
+    width: 100%;
+}
+
+.ant-input {
+    border: 1px solid #d9d9d9;
+}
+.ant-input {
+    box-sizing: border-box;
+    margin: 0;
+    font-variant: tabular-nums;
+    list-style: none;
+    font-feature-settings: "tnum", "tnum";
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    min-width: 0;
+    padding: 4px 11px;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    line-height: 1.5715;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.form-control {
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+    font-size: 14px;
+    color: #000;
+    border: 1px solid #d9d9d9;
+    background: #fff;
+    border-radius: 4px;
+    width: 100%;
+    height: 40px;
+    text-align: left;
+    transition: all 0.3s;
+}
+.ant-input:placeholder-shown {
+    text-overflow: ellipsis;
+}
+.ant-btn {
+    text-shadow: none;
+    cursor: pointer;
+    box-shadow: none;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    height: 40px;
+}
+.ant-btn-primary,
+.ant-btn-primary:focus,
+.ant-btn-primary:hover {
+    background-color: #ff8917;
+    border-color: #ff8917;
+    color: #fff;
+}
+
+.ant-btn,
+.ant-dropdown-menu,
+.ant-input,
+.ant-input-affix-wrapper,
+.ant-modal-content {
+    border-radius: 4px;
+}
+.mb30 {
+    margin-bottom: 30px !important;
+}
+.text-center {
+    text-align: center !important;
+}
+h2 {
+    font-size: 22px;
+    font-weight: 600;
+}
+.ant-input-affix-wrapper-lg,
+.ant-input-lg,
+.ant-select-lg {
+    font-size: 14px;
+}
+.ant-input-affix-wrapper-lg,
+.ant-input-lg,
+.vntDatepicker .ant-picker-large {
+    height: 40px;
+    padding: 0 15px;
+}
+.ant-form-item-control-input-content {
+    flex: auto;
+    max-width: 100%;
+}
+.ant-input-affix-wrapper {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    min-width: 0;
+    padding: 4px 11px;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 14px;
+    line-height: 1.5715;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    transition: all 0.3s;
+    display: inline-flex;
+}
+.ant-input-affix-wrapper-lg,
+.ant-input-lg {
+    height: 40px;
+    padding: 0 15px;
+}
+.ant-input-suffix {
+    align-items: center;
+    display: flex;
+    flex: none;
+    cursor: pointer;
+}
+
+._1ix216,
+.Xqnqjs {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+._1ix216,
+.IFLxoY,
+.Xqnqjs {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+._1b1OLX,
+.dJsOUU {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+._1hKScg {
+    flex: 1 1 0%;
+    margin: 0.3125rem;
+}
+
+._1b1OLX {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 1px;
+}
+._1b1OLX,
+._1JEYOo,
+._1o_kg_ {
+    flex-shrink: 0;
+}
+
+._1b1OLX,
+.dJsOUU {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 30%;
+}
+._1SPkQc {
+    background-color: rgb(66, 133, 244);
+    color: rgb(255, 255, 255);
+    font-size: 0.875rem;
+}
+._35Loth {
+    background-color: rgb(255, 255, 255);
+}
+._1iDCwS {
+    flex: 1 1 0%;
+}
+
+._1hKScg {
+    flex: 1 1 0%;
+    margin: 0.3125rem;
+}
+
+._1b1OLX,
+.dJsOUU {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+._1hKScg {
+    flex: 1 1 0%;
+    margin: 0.3125rem;
+}
+
+._1b1OLX {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 1px;
+}
+._1b1OLX,
+._1JEYOo,
+._1o_kg_ {
+    flex-shrink: 0;
+}
+
+._1b1OLX,
+.dJsOUU {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 30%;
+}
+._1SPkQc {
+    background-color: rgb(66, 133, 244);
+    color: rgb(255, 255, 255);
+    font-size: 0.875rem;
+}
+._35Loth {
+    background-color: rgb(255, 255, 255);
+}
+._1iDCwS {
+    flex: 1 1 0%;
+}
+._1ix216 {
+    button {
+        padding: 0 !important;
+        div {
+            padding: 0 !important;
+        }
+    }
+}
