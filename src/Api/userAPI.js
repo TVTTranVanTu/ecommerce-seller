@@ -6,19 +6,19 @@ const userApi = {
         return axiosClient.get(url);
     },
     register: (payload) => {
-        const url = '/home/users';
+        const url = "/home/users";
         return axiosClient.post(url, payload);
     },
     signIn: (payload) => {
-        const url = '/login';
+        const url = "/login";
         return axiosClient.post(url, payload);
     },
     signInFacebook: (payload) => {
-        const url = '/login/facebook';
+        const url = "/login/facebook";
         return axiosClient.post(url, payload);
     },
     signInGoogle: (payload) => {
-        const url = '/login/google';
+        const url = "/login/google";
         return axiosClient.post(url, payload);
     },
     updateUser: (id, payload) => {
@@ -26,9 +26,9 @@ const userApi = {
         return axiosClient.put(url, payload);
     },
     listUser: () => {
-        const url = '/home/users';
+        const url = "/home/users";
         return axiosClient.get(url);
-    }
-}
+    },
+};
 
 export default userApi;

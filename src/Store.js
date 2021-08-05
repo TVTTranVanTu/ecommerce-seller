@@ -1,7 +1,20 @@
 import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
 import thuck from 'redux-thunk';
-import { categoryListReducer, subCategoryListReducer } from './reducers/categorysReducer';
-import { userSigninFBReducer, userSigninGGReducer, userSigninReducer, userUpdateReducer } from './reducers/UserReducer';
+import {
+    categoryListReducer,
+    subCategoryListReducer
+} from './reducers/categorysReducer';
+import {
+    addProductReducer,
+    productListReducer,
+    productUpdateReducer
+} from './reducers/productReducer';
+import {
+    userSigninFBReducer,
+    userSigninGGReducer,
+    userSigninReducer,
+    userUpdateReducer
+} from './reducers/UserReducer';
 
 
 const initialState = {
@@ -14,6 +27,9 @@ const initialState = {
 
 const reducer = combineReducers(
     {
+        productUpdate: productUpdateReducer,
+        listProducts: productListReducer,
+        productCreate: addProductReducer,
         userUpdate: userUpdateReducer,
         userSignin: userSigninReducer,
         userSigninGG: userSigninGGReducer,

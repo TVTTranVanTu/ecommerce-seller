@@ -1,4 +1,4 @@
-import axiosClient from "./axiosClient";
+import axiosClient from './axiosClient';
 
 const categoryApi = {
   getAll: () => {
@@ -8,10 +8,7 @@ const categoryApi = {
   get: (id) => {
     const url = `/home/categories/${id}/subcategories`;
     return axiosClient.get(url);
-  }
-}
-
-
+  },
+};
 
 export default categoryApi;
-

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import RegisterBox from './RegisterBox';
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import RegisterBox from "./RegisterBox";
 
 function CheckOTPBox(props) {
     const [codeValue, setCodeValue] = useState();
@@ -10,7 +10,10 @@ function CheckOTPBox(props) {
     const { code } = codeotp;
     return (
         <div>
-            <div className="check-otp__box" style={{ display: ` ${hidden === false ? 'none' : 'block'}` }}>
+            <div
+                className="check-otp__box"
+                style={{ display: ` ${hidden === false ? "none" : "block"}` }}
+            >
                 <div className="check-modal__header">
                     <h1>Nhập mã OTP</h1>
                 </div>
@@ -26,7 +29,8 @@ function CheckOTPBox(props) {
                         />
                     </div>
                     <div className="mr__bt">
-                        <button className="mr__bt ant-btn ant-btn-primary btn btn_orange w100"
+                        <button
+                            className="mr__bt ant-btn ant-btn-primary btn btn_orange w100"
                             onClick={() => {
                                 if (String(codeValue) === String(code)) {
                                     setHidden(false);
@@ -36,13 +40,15 @@ function CheckOTPBox(props) {
                             Xác nhận
                         </button>
                     </div>
-                    <p className="mr__bt">
-                        Mã OTP đã được gửi về email của bạn
-                    </p>
+                    <p className="mr__bt">Mã OTP đã được gửi về email của bạn</p>
                 </div>
             </div>
-            <div style={{ display: ` ${hidden === true ? 'none' : 'block'}` }}>
-                <RegisterBox email={props.email} redirect={props.redirect} history={props.history} />
+            <div style={{ display: ` ${hidden === true ? "none" : "block"}` }}>
+                <RegisterBox
+                    email={props.email}
+                    redirect={props.redirect}
+                    history={props.history}
+                />
             </div>
         </div>
     );

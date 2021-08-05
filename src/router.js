@@ -1,4 +1,5 @@
 import React from 'react';
+import OrderList from './components/contents/orderManager/OrderList';
 import AddProducts from './components/contents/productsManager/AddProducts';
 import BannedProducts from './components/contents/productsManager/BannedProducts';
 import ListProduct from './components/contents/productsManager/ListProducts';
@@ -15,7 +16,17 @@ const routes = [
         main: () => <DashBoardPage />
     },
     {
-        path: '/order',
+        path: '/portal/sale/order',
+        exact: true,
+        main: () => <OrderList />
+    },
+    {
+        path: '/portal/sale/order?type=cancelled',
+        exact: true,
+        main: () => <OrderPage />
+    },
+    {
+        path: '/portal/sale/returnlist',
         exact: true,
         main: () => <OrderPage />
     },

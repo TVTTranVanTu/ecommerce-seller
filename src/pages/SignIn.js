@@ -132,7 +132,7 @@ function SingIn(props) {
                                     ></FacebookLogin>
                                     <GoogleLogin
                                         className="dJsOUU _1A307B _1tEaLw _1A307B _1SPkQc"
-                                        clientId="662863314372-lobjk150l82p9r0p60m3th41of3rau1a.apps.googleusercontent.com"
+                                        clientId="662863314372-2gu6a9q5567fqgmb1hq0maruj63o7uvn.apps.googleusercontent.com"
                                         buttonText="Google"
                                         onSuccess={responseGoogle}
                                         onFailure={responseGoogle} >

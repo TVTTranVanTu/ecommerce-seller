@@ -44,11 +44,9 @@ function FormInfo(props) {
         if (successUpdate) {
             if (data) {
                 dispatch(signin(name, data.password));
-
             }
             if (datafb) {
                 dispatch(signin(name, datafb.password));
-
             }
             dispatch({ type: USER_UPDATE_RESET });
             history.push('/');

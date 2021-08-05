@@ -382,14 +382,12 @@ svg {
   padding: 0.75rem;
   outline: none;
   border: none;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-  -moz-box-flex: 1;
-  -ms-flex: 1;
   flex: 1;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
   flex-shrink: 0;
-  -webkit-filter: none;
   filter: none;
+}
+.portal-sale-container {
+  margin-top: 16px;
+  background: #fff;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 10%);
 }

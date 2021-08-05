@@ -595,8 +595,6 @@ html.VN button {
 
 .list-percent-box,
 .percent-bar {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     min-width: 126px;
 }
@@ -615,18 +613,12 @@ html.VN button {
 }
 .product-variation-header,
 .product-variation-item {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
     justify-content: space-between;
-    -ms-flex-wrap: nowrap;
     flex-wrap: nowrap;
 }
 .product-variation {
-    width: 631px;
-    min-width: 631px;
+    width: 60%;
     padding: 0;
 }
 .product-list-header .shopee-order-group {
@@ -841,4 +833,32 @@ html.VN button {
             }
         }
     }
+}
+.product-result {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 10px;
+}
+.product-name {
+    width: 25%;
+    padding-right: 16px;
+}
+.product-info {
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+}
+.product-price,
+.product-discount,
+.product-quantity,
+.product-sold {
+    width: 15%;
+    margin-right: 16px;
+}
+.edit-product {
+    width: 15%;
+    text-align: center;
 }
