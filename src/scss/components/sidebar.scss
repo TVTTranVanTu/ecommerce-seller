@@ -1,5 +1,10 @@
 .sidebar-container {
+    position: fixed;
+    z-index: 10;
     width: 220px;
+    height: calc(100% - 56px);
+    overflow-y: hidden;
+    overflow-x: hidden;
     background: #fff;
     .sidebar {
         top: 0;
@@ -87,4 +92,18 @@
             }
         }
     }
+}
+.sidebar-container:hover {
+    overflow-y: auto;
+}
+.sidebar-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+.sidebar-container::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: transparent;
+}
+.sidebar-container:hover::-webkit-scrollbar-thumb {
+    background-color: #a0a0a0;
 }

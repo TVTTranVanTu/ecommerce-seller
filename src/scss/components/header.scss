@@ -3,8 +3,8 @@
     left: 0;
     position: fixed;
     width: 100%;
-    min-height: 56px;
-    max-height: 56px;
+    min-height: 66px;
+    max-height: 66px;
     z-index: 6666;
     background-color: #fff;
     .header-content {
@@ -19,8 +19,12 @@
             margin-left: 16px;
             width: 97px;
             height: 30px;
-            svg {
-                fill: #ee4d2d;
+            .logo_image {
+                width: 60px;
+                margin-left: 20px;
+                img {
+                    width: 100%;
+                }
             }
         }
         .content-box {

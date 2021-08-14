@@ -185,6 +185,46 @@
                                     color: #757575;
                                     font-size: 14px;
                                     border: 1px solid #e8e8e8;
+                                    .item-product {
+                                        margin-right: 16px;
+                                        min-width: 370px;
+                                        max-width: 370px;
+                                        flex: 1;
+                                    }
+                                    .item-total {
+                                        margin-right: 106px;
+                                        min-width: 96px;
+                                    }
+                                    .item-status {
+                                        margin-right: 66px;
+                                        align-items: center;
+                                        min-width: 182px;
+                                        max-width: 182px;
+                                        .item-countdown {
+                                            margin-left: 9px;
+                                        }
+                                        .item-countdown:before {
+                                            content: "";
+                                            display: inline-block;
+                                            margin-right: 9px;
+                                            width: 0;
+                                            height: 14px;
+                                            border-left: 1px solid #e8e8e8;
+                                            vertical-align: -3px;
+                                        }
+                                    }
+                                    .item-channel {
+                                        margin-right: 16px;
+                                        color: #333;
+                                        word-break: break-all;
+                                        min-width: 144px;
+                                        max-width: 144px;
+                                    }
+                                    .item-action {
+                                        min-width: 168px;
+                                        max-width: 168px;
+                                        text-align: center;
+                                    }
                                 }
                             }
                         }

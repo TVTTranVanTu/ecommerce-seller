@@ -4,19 +4,20 @@ import { useHistory } from "react-router";
 import { listCategory, listSubCategory } from "../../../actions/categoryAction";
 import { addProducts } from "../../../actions/productAction";
 import { PRODUCT_ADD_RESET } from "../../../constants/productContant";
+import { storage } from "../../../firebase/firebase";
 function AddProducts(props) {
   const history = useHistory();
   const [category, setCategory] = useState("");
   const [subCategory, setSubCategory] = useState("");
   const [postTitle, setPostTitle] = useState("");
   const [postDescription, setPostDescription] = useState("");
-  const [productThumbnail, setProductThumbnail] = useState("");
+  const [productThumbnail, setProductThumbnail] = useState(null);
   const [productPrice, setProductPrice] = useState("");
   const [productName, setProductName] = useState("");
   const [quantity, setQuantity] = useState("");
   const [discount, setdiscount] = useState("");
   const [subProductId, setSubProductId] = useState("");
-  const [urlImage, setUrlImage] = useState(null);
+  const [urlImage, setUrlImage] = useState("");
 
   const dispatch = useDispatch();
   const categoryList = useSelector((state) => state.categoryList);
@@ -27,16 +28,34 @@ function AddProducts(props) {
 
   const handleChangeImage = (event) => {
     if (event.target.files[0]) {
-      setUrlImage(event.target.files[0]);
+      const productThumbnail = event.target.files[0];
+      setProductThumbnail(productThumbnail);
+      const uploadTask = storage
+        .ref(`images/${productThumbnail.name}`)
+        .put(productThumbnail);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {},
+        (error) => {
+          console.log(error);
+        },
+        () => {
+          storage
+            .ref("images")
+            .child(productThumbnail.name)
+            .getDownloadURL()
+            .then((url) => {
+              setUrlImage(url);
+            });
+        }
+      );
     }
-    const a = URL.createObjectURL(event.target.files[0]);
-    setProductThumbnail(a);
   };
   const product = {
     postTitle: postTitle,
     postDescription: postDescription,
     product: {
-      productThumbnail: productThumbnail,
+      productThumbnail: urlImage,
       productPrice: productPrice,
       productName: productName,
       quantity: quantity,
@@ -63,7 +82,7 @@ function AddProducts(props) {
       dispatch({ type: PRODUCT_ADD_RESET });
       history.push(`/product/list-product`);
     }
-  }, [dispatch, createdProduct, history]);
+  }, [dispatch, createdProduct, history, successCreate]);
   return (
     <div className="page">
       <div className="product">
@@ -87,7 +106,7 @@ function AddProducts(props) {
                         >
                           <path
                             d="M31.7 31.7c-.4.4-1 .4-1.3 0l-8.9-8.9c-2.3 2-5.2 3.2-8.5 3.2-7.2 0-13-5.8-13-13S5.8 0 13 0s13 5.8 13 13c0 3.2-1.2 6.2-3.2 
-                                                    8.5l8.9 8.9c.4.3.4.9 0 1.3zM24 13c0-6.1-4.9-11-11-11S2 6.9 2 13s4.9 11 11 11 11-4.9 11-11z"
+                              8.5l8.9 8.9c.4.3.4.9 0 1.3zM24 13c0-6.1-4.9-11-11-11S2 6.9 2 13s4.9 11 11 11 11-4.9 11-11z"
                             fillRule="evenodd"
                             clipRule="evenodd"
                           ></path>
@@ -205,12 +224,12 @@ function AddProducts(props) {
                     <div className="shopee-image-manager__item ignore-item cover-item">
                       <div
                         className={
-                          productThumbnail === ""
+                          !productThumbnail
                             ? "shopee-image-manager__content"
                             : "shopee-image-manager__content content-fill"
                         }
                       >
-                        {productThumbnail === "" ? (
+                        {!productThumbnail ? (
                           <div className="shopee-image-manager__upload">
                             <div
                               className="shopee-file-upload"
@@ -235,13 +254,13 @@ function AddProducts(props) {
                                           fillRule="evenodd"
                                           clipRule="evenodd"
                                           d="M12.387 5.807a.387.387 0 1 0-.774 0v5.806H5.806a.387.387 0 
-                                                                                    1 0 0 .774h5.807v5.807a.387.387 0 1 0 .774 0v-5.807h5.807a.387.387 0 1 0 0-.774h-5.807V5.807z"
+                                          1 0 0 .774h5.807v5.807a.387.387 0 1 0 .774 0v-5.807h5.807a.387.387 0 1 0 0-.774h-5.807V5.807z"
                                         ></path>
                                         <path
                                           fillRule="evenodd"
                                           clipRule="evenodd"
                                           d="M12 24c6.627 0 12-5.373 12-12S18.627 0 12 0 0 5.373 0 12s5.373 12 12 
-                                                                                    12zm0-.774c6.2 0 11.226-5.026 11.226-11.226C23.226 5.8 18.2.774 12 .774 5.8.774.774 5.8.774 12 .774 18.2 5.8 23.226 12 23.226z"
+                                          12zm0-.774c6.2 0 11.226-5.026 11.226-11.226C23.226 5.8 18.2.774 12 .774 5.8.774.774 5.8.774 12 .774 18.2 5.8 23.226 12 23.226z"
                                         ></path>
                                       </svg>
                                     </i>
@@ -254,10 +273,14 @@ function AddProducts(props) {
                           <div>
                             <img
                               className="shopee-image-manager__image"
-                              src={productThumbnail}
+                              src={urlImage}
+                              alt="img"
                             />
                             <div className="shopee-image-manager__tools">
-                              <span className="shopee-image-manager__icon shopee-image-manager__icon--delete">
+                              <span
+                                className="shopee-image-manager__icon shopee-image-manager__icon--delete"
+                                onClick={() => setProductThumbnail(null)}
+                              >
                                 <i className="shopee-icon">
                                   <svg
                                     viewBox="0 0 16 16"
@@ -266,12 +289,12 @@ function AddProducts(props) {
                                     <g fillRule="nonzero">
                                       <path
                                         d="M14.516 3.016h-4v-1a.998.998 0 0 0-.703-.955.99.99 0 0 0-.297-.045h-3a.998.998 0 0 0-.955.703.99.99 
-                                                                            0 0 0-.045.297v1h-4a.5.5 0 1 0 0 1h1v10a.998.998 0 0 0 .703.955.99.99 0 0 0 .297.045h9a.998.998 0 0 0 .955-.703.99.99 
-                                                                            0 0 0 .045-.297v-10h1a.5.5 0 1 0 0-1zm-8-1h3v1h-3v-1zm6 12h-9v-10h9v10z"
+                                          0 0 0-.045.297v1h-4a.5.5 0 1 0 0 1h1v10a.998.998 0 0 0 .703.955.99.99 0 0 0 .297.045h9a.998.998 0 0 0 .955-.703.99.99 
+                                          0 0 0 .045-.297v-10h1a.5.5 0 1 0 0-1zm-8-1h3v1h-3v-1zm6 12h-9v-10h9v10z"
                                       ></path>
                                       <path
                                         d="M5.516 12.016a.5.5 0 0 0 .5-.5v-4a.5.5 0 1 0-1 0v4a.5.5 0 0 0 .5.5zM8.016 12.016a.5.5 0 0 0 .5-.5v-5a.5.5 0 
-                                                                            1 0-1 0v5a.5.5 0 0 0 .5.5zM10.516 12.016a.5.5 0 0 0 .5-.5v-4a.5.5 0 1 0-1 0v4a.5.5 0 0 0 .5.5z"
+                                          1 0-1 0v5a.5.5 0 0 0 .5.5zM10.516 12.016a.5.5 0 0 0 .5-.5v-4a.5.5 0 1 0-1 0v4a.5.5 0 0 0 .5.5z"
                                       ></path>
                                     </g>
                                   </svg>
@@ -321,7 +344,7 @@ function AddProducts(props) {
                           />
                           <div className="shopee-input__suffix">
                             <span className="shopee-input__suffix-split"></span>
-                            12/120
+                            {postTitle.split("").length}/120
                           </div>
                         </div>
                       </div>
@@ -358,7 +381,7 @@ function AddProducts(props) {
                           />
                           <div className="shopee-input__suffix">
                             <span className="shopee-input__suffix-split"></span>
-                            12/120
+                            {productName.split("").length}/120
                           </div>
                         </div>
                       </div>
@@ -404,7 +427,9 @@ function AddProducts(props) {
                         ></textarea>
                       </div>
                       <div className="text-area-label">
-                        <span className="text-area-label-pre">0</span>
+                        <span className="text-area-label-pre">
+                          {postDescription.split("").length}
+                        </span>
                         /3000
                       </div>
                     </div>
@@ -442,8 +467,8 @@ function AddProducts(props) {
                         >
                           <path
                             d="M988.1 316.06a127.07 127.07 0 0 0-37.5-90.5L798.4 73.36c-49.9-49.9-131.1-49.9-181.1 0l-91.8 91.8-.3.3-.3.3-470.2 470.4a63.47 63.47 0 0 0-18.8 45.2v242.7a64.06 64.06 
-                                                        0 0 0 64 64h242.8a63.47 63.47 0 0 0 45.2-18.8l470.6-470.6 92.1-92.1a127.07 127.07 0 0 0 37.5-90.5zm-842.9 320l402.7-402.7 242.8 242.7-402.8 402.8zm-45.3 288v-242.7l242.7 
-                                                        242.7zm805.5-562.7l-69.5 69.4-242.7-242.7 69.5-69.5a64.22 64.22 0 0 1 90.6 0l152.2 152.2a64.37 64.37 0 0 1-.1 90.6z"
+                              0 0 0 64 64h242.8a63.47 63.47 0 0 0 45.2-18.8l470.6-470.6 92.1-92.1a127.07 127.07 0 0 0 37.5-90.5zm-842.9 320l402.7-402.7 242.8 242.7-402.8 402.8zm-45.3 288v-242.7l242.7 
+                              242.7zm805.5-562.7l-69.5 69.4-242.7-242.7 69.5-69.5a64.22 64.22 0 0 1 90.6 0l152.2 152.2a64.37 64.37 0 0 1-.1 90.6z"
                             data-name="Layer 1"
                           ></path>
                         </svg>

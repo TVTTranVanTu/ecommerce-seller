@@ -1,0 +1,244 @@
+.shop-profile {
+    .header {
+        position: relative;
+        display: flex;
+        padding: 24px;
+        border-bottom: 1px solid #e8e8e8;
+        .caption {
+            flex: 1;
+            .title {
+                height: 26px;
+                margin-bottom: 6px;
+                font-size: 22px;
+                font-weight: 500;
+                color: #333;
+            }
+            .subtitle {
+                font-size: 14px;
+                color: #999;
+            }
+        }
+    }
+    .shop-profile-header {
+        position: relative;
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+    .shop-profile-body {
+        padding: 8px 24px 24px;
+        .shopee-tabs {
+            display: flex;
+            flex-direction: column;
+        }
+        .shopee-tabs {
+            margin: 0 -24px;
+            .shopee-tabs__nav {
+                position: relative;
+                font-size: 14px;
+                line-height: 16px;
+                color: #333;
+                white-space: nowrap;
+            }
+            .shopee-tabs__nav:before {
+                width: 100%;
+                height: 0;
+                border-top: 1px solid #e5e5e5;
+            }
+            .shopee-tabs__nav {
+                position: relative;
+                padding: 0 24px;
+                margin-bottom: 0;
+                .shopee-tabs__nav-warp {
+                    position: relative;
+                    display: flex;
+                    width: 100%;
+                    overflow: hidden;
+                    .shopee-tabs__nav-tab {
+                        text-decoration: none;
+                        cursor: pointer;
+                        box-sizing: border-box;
+                        transition: color 0.2s ease-in-out;
+                    }
+                    .shopee-tabs__nav-tab {
+                        display: flex;
+                        align-items: center;
+                        height: 56px;
+                        padding: 0 16px;
+                        overflow: hidden;
+                        text-align: center;
+                    }
+                    .shopee-tabs__nav-tabs {
+                        display: flex;
+                        flex: none;
+                    }
+
+                    .shopee-tabs__nav-tab.active {
+                        font-weight: 600;
+                        color: #ee4d2d;
+                    }
+
+                    .shopee-tabs__ink-bar {
+                        position: absolute;
+                        z-index: 1;
+                        background-color: #ee4d2d;
+                        -webkit-transform: translateZ(0);
+                        transform: translateZ(0);
+                    }
+                    .shopee-tabs__ink-bar {
+                        left: 0;
+                        height: 3px;
+                        transition: transform 0.2s ease-in-out, width 0.2s ease-in-out;
+                        bottom: 0;
+                    }
+                }
+            }
+            .shopee-tabs__nav:before {
+                bottom: 0;
+            }
+            .shopee-tabs__nav:before {
+                position: absolute;
+                content: "";
+            }
+            .shopee-tabs__nav:before {
+                position: absolute;
+                right: 0;
+                left: 0;
+            }
+            .shopee-tabs__content {
+                width: 100%;
+                font-size: 14px;
+            }
+        }
+        .shop-profile-tab-wrapper {
+            margin-top: 24px;
+            .shop-profile-inf {
+                .shope-profile-content {
+                    display: flex;
+                    .shop-avatar {
+                        width: 300px;
+                        overflow: hidden;
+                        position: relative;
+                        .avatar {
+                            position: absolute;
+                            top: 56px;
+                            left: 100px;
+                            width: 55px;
+                            height: 55px;
+                            overflow: hidden;
+                            background-repeat: no-repeat;
+                            background-position: 50%;
+                            background-size: cover;
+                            border-radius: 50%;
+                            .avatar-edit {
+                                position: absolute;
+                                bottom: 0;
+                                width: 100%;
+                                height: 16px;
+                                font-size: 12px;
+                                line-height: 16px;
+                                color: #fff;
+                                text-align: center;
+                                background: rgba(0, 0, 0, 0.5);
+                                .shopee-upload__input {
+                                    position: absolute;
+                                    left: 0;
+                                    opacity: 0;
+                                    top: 0;
+                                    bottom: 0;
+                                    width: 100%;
+                                }
+                            }
+                            .action {
+                                cursor: pointer;
+                            }
+                        }
+                        .avatar-title {
+                            position: absolute;
+                            top: 120px;
+                            left: 90px;
+                            font-size: 14px;
+                            font-weight: 400;
+                        }
+                    }
+                    .basic-info-list {
+                        width: 681px;
+                        margin: 0 auto;
+                        .form-section {
+                            margin-bottom: 24px;
+                            .form-title {
+                                font-size: 16px;
+                                font-weight: 500;
+                            }
+                            .form-content {
+                                margin-top: 12px;
+                            }
+                        }
+                        .address {
+                            align-items: center;
+                            display: flex;
+                            width: 100%;
+                            text-align: center;
+                            height: 100%;
+                            .provinces,
+                            .wards {
+                                width: 30%;
+                                cursor: pointer;
+                            }
+                            .district {
+                                width: 40%;
+                                cursor: pointer;
+                            }
+                            .icon {
+                                position: absolute;
+                                bottom: 8px;
+                                margin-left: 5px;
+                            }
+                        }
+                        ._2SECXb {
+                            display: flex;
+                            flex: 1;
+                            padding: 10px 38px 10px 10px;
+                            align-items: center;
+                            box-sizing: border-box;
+                            border-radius: 2px;
+                            border: 1px solid rgba(0, 0, 0, 0.14);
+                            word-break: break-word;
+                            margin-bottom: 20px;
+                            input,
+                            input:active,
+                            input:focus {
+                                outline: none;
+                                flex: 1;
+                                padding: 0;
+                                border: none;
+                                word-break: break-all;
+                            }
+                        }
+                        .box-address {
+                            display: flex;
+                            flex-direction: column;
+                            max-height: 280px;
+                            border-radius: 2px;
+                            .shopee-input__inner {
+                                border: 1px solid #e5e5e5 !important;
+                                border-radius: 0 !important;
+                                flex-shrink: 0;
+                            }
+                        }
+                        .list-address {
+                            display: flex;
+                            flex-direction: column;
+                            overflow-x: hidden;
+                            overflow-y: auto;
+                            .address-item {
+                                padding: 12px;
+                                word-break: break-word;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
