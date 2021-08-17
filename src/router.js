@@ -2,8 +2,6 @@ import React from "react";
 import OrderList from "./components/contents/orderManager/OrderList";
 import AddProducts from "./components/contents/productsManager/AddProducts";
 import BannedProducts from "./components/contents/productsManager/BannedProducts";
-import ListProduct from "./components/contents/productsManager/ListProducts";
-import Products from "./components/contents/productsManager/Products";
 import ShopReview from "./components/contents/shopManager/ShopReview";
 import DashBoardPage from "./pages/DashBoardPage";
 import OrderPage from "./pages/OrderPage";
@@ -22,7 +20,7 @@ const routes = [
     main: () => <DashBoardPage />,
   },
   {
-    path: "/portal/settings/basic",
+    path: "/portal/settings/account",
     exact: true,
     main: () => <SettingShop />,
   },
@@ -42,9 +40,9 @@ const routes = [
     main: () => <OrderPage />,
   },
   {
-    path: "/product/list-product",
+    path: "/product/list-product/all",
     exact: true,
-    main: () => <ProductManage content={<Products />} />,
+    main: () => <ProductManage />,
   },
   {
     path: "/product/add-product",

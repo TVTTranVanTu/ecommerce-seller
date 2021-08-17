@@ -99,7 +99,7 @@ function SideBar(props) {
               >
                 <li className="sidebar-submenu-item">
                   <Link
-                    to="/product/list-product"
+                    to="/product/list-product/all"
                     className="sidebar-submenu-item-link"
                   >
                     <span>Tất Cả Sản Phẩm</span>
@@ -111,14 +111,6 @@ function SideBar(props) {
                     className="sidebar-submenu-item-link"
                   >
                     <span>Thêm Sản Phẩm</span>
-                  </Link>
-                </li>
-                <li className="sidebar-submenu-item">
-                  <Link
-                    to="/product/banned-product"
-                    className="sidebar-submenu-item-link"
-                  >
-                    <span>Sản Phẩm Vi Phạm</span>
                   </Link>
                 </li>
               </ul>
@@ -162,36 +154,20 @@ function SideBar(props) {
                   </Link>
                 </li>
                 <li className="sidebar-submenu-item">
-                  <a
+                  <Link
                     href="/portal/settings/shop/profile"
                     className="sidebar-submenu-item-link"
                   >
                     <span>Hồ Sơ Shop</span>
-                  </a>
+                  </Link>
                 </li>
                 <li className="sidebar-submenu-item">
-                  <a
+                  <Link
                     href="/portal/decoration"
                     className="sidebar-submenu-item-link"
                   >
                     <span>Trang Trí Shop</span>
-                  </a>
-                </li>
-                <li className="sidebar-submenu-item">
-                  <a
-                    href="/portal/category"
-                    className="sidebar-submenu-item-link"
-                  >
-                    <span>Danh Mục Của Shop</span>
-                  </a>
-                </li>
-                <li className="sidebar-submenu-item">
-                  <a
-                    href="/portal/settings/shop/reports"
-                    className="sidebar-submenu-item-link"
-                  >
-                    <span>Báo Cáo Của Tôi</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>
@@ -226,37 +202,12 @@ function SideBar(props) {
                 }`}
               >
                 <li className="sidebar-submenu-item">
-                  <a
-                    href="/portal/settings/shop/address"
-                    className="sidebar-submenu-item-link"
-                  >
-                    <span>Địa Chỉ</span>
-                  </a>
-                </li>
-                <li className="sidebar-submenu-item">
-                  <a
-                    href="/portal/settings/basic"
-                    className="sidebar-submenu-item-link"
-                  >
-                    <span>Thiết Lập Shop</span>
-                  </a>
-                </li>
-                <li className="sidebar-submenu-item">
-                  <a
-                    href="/portal/settings/account"
+                  <Link
+                    to="/portal/settings/account"
                     className="sidebar-submenu-item-link"
                   >
                     <span>Tài Khoản</span>
-                  </a>
-                </li>
-                <li className="sidebar-submenu-item">
-                  <a
-                    href="/portal/partner-platform/shop"
-                    className="sidebar-submenu-item-link"
-                  >
-                    <span>Nền tảng đối tác (Kết nối API)</span>
-                    <span className="sidebar-new"></span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </li>

@@ -1,11 +1,12 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { signout } from "../../actions/UserAction";
 import logo from "../../assets/image/logo1.png";
 function Header(props) {
   const dispatch = useDispatch();
   const userSignin = useSelector((state) => state.userSignin);
-  const { loading, error, userInfo } = userSignin;
+  const { userInfo } = userSignin;
   const signoutHandler = () => {
     dispatch(signout());
   };
@@ -13,15 +14,15 @@ function Header(props) {
     <div className="header-bar">
       {userInfo ? (
         <div className="header-content">
-          <a href="/" className="header-logo">
+          <Link to="/" className="header-logo">
             <div className="logo_image">
               <img alt="logo" src={logo} />
             </div>
-          </a>
+          </Link>
           <div className="content-box">
-            <a href="/" className="breadcrumb-text">
+            <Link to="/" className="breadcrumb-text">
               Kênh Người Bán
-            </a>
+            </Link>
           </div>
           <div className="info">
             <div className="popover">
@@ -50,15 +51,20 @@ function Header(props) {
                 <div className="popover__content">
                   <ul className="account-dropdown">
                     <li className="account-dropdown-item">
-                      <span className="icon">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 32 32"
-                        >
-                          <path d="M23.9 12.9l-1.6-1.6 6.2-6.2 1.6 1.6-6.2 6.2zM32 4.8l-1.6-1.6-1 1L31 5.8l1-1zM19.7 15.6l2.6-1.4-1.3-1.3-1.3 2.7zm8.6-4v16.3c0 .9-.7 1.6-1.6 1.6H1.6c-.9 0-1.6-.7-1.6-1.6V6.2c0-.9.7-1.6 1.6-1.6h24.2l-2 2H2v11.9l5.6-3.8 7.2 6.1 6.7-3 4.7 4.1v-8.4l2.1-1.9zm-2 15.9v-2.9l-5.1-4.4-6.7 3-7-6L2 21v6.5h24.3z"></path>
-                        </svg>
-                      </span>
-                      <span className="text">Hồ Sơ Shop</span>
+                      <Link
+                        to="/portal/settings/account"
+                        style={{ display: "flex", color: "#000" }}
+                      >
+                        <span className="icon">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 32 32"
+                          >
+                            <path d="M23.9 12.9l-1.6-1.6 6.2-6.2 1.6 1.6-6.2 6.2zM32 4.8l-1.6-1.6-1 1L31 5.8l1-1zM19.7 15.6l2.6-1.4-1.3-1.3-1.3 2.7zm8.6-4v16.3c0 .9-.7 1.6-1.6 1.6H1.6c-.9 0-1.6-.7-1.6-1.6V6.2c0-.9.7-1.6 1.6-1.6h24.2l-2 2H2v11.9l5.6-3.8 7.2 6.1 6.7-3 4.7 4.1v-8.4l2.1-1.9zm-2 15.9v-2.9l-5.1-4.4-6.7 3-7-6L2 21v6.5h24.3z"></path>
+                          </svg>
+                        </span>
+                        <span className="text">Hồ Sơ Shop</span>
+                      </Link>
                     </li>
                     <li className="account-dropdown-item">
                       <span className="icon">
@@ -283,9 +289,6 @@ function Header(props) {
                             </svg>
                           </i>
                         </button>
-                        {/* <sup className="badge-x__sup badge-x__sup--num badge-x__sup--fixed" >
-                                                <span>0</span>
-                                            </sup> */}
                       </div>
                     </div>
                   </div>

@@ -60,6 +60,15 @@
                                         padding: 0 16px;
                                         overflow: hidden;
                                         text-align: center;
+                                        a {
+                                            color: #333;
+                                        }
+                                    }
+                                    .shopee-tabs__nav-tab:hover,
+                                    .shopee-tabs__nav-tab:active {
+                                        a {
+                                            color: #ee4d2d;
+                                        }
                                     }
                                 }
                             }

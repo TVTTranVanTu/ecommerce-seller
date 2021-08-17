@@ -558,6 +558,9 @@ html.VN button {
 }
 .product-name {
     overflow: hidden;
+    a {
+        color: #000;
+    }
 }
 .product-result {
     font-size: 14px;
@@ -861,4 +864,13 @@ html.VN button {
         color: #333;
         background-color: rgba(0, 0, 0, 0.04);
     }
+}
+.shopee-input__suffix {
+    cursor: pointer;
+}
+.reset {
+    margin-left: 5px;
+}
+.search__input {
+    width: 70% !important;
 }

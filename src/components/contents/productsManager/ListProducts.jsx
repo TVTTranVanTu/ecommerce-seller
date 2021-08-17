@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import Product from "./Product";
 
 function ListProduct(props) {
   const history = useHistory();
@@ -10,7 +11,26 @@ function ListProduct(props) {
 
   const data = props.products;
   const [products, setProducts] = useState(data);
+  const [searchTerm, setSearchTerm] = useState("");
 
+  const searchProducts = () => {
+    const filterProducts = products.filter((product) => {
+      return product.productDto.productName
+        .replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, "")
+        .replace(/\u02C6|\u0306|\u031B/g, "")
+        .toLowerCase()
+        .includes(
+          searchTerm
+            .replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, "")
+            .toLowerCase()
+        );
+    });
+    setProducts(filterProducts);
+  };
+
+  const resetProducts = () => {
+    setProducts(data);
+  };
   function compareValues(key, order = "asc") {
     return function innerSort(a, b) {
       if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) {
@@ -31,8 +51,19 @@ function ListProduct(props) {
   }
 
   function sortBySoldQuantity(a) {
-    const b=[...a];
+    const b = [...a];
     setProducts(b.sort(compareValues("soldQuantity")));
+    console.log(products);
+  }
+  function sortByName(a) {
+    const b = [...a];
+    setProducts(b.sort(compareValues("productDto.productName")));
+    console.log(products);
+  }
+  function sortByPrice(a) {
+    const b = [...a];
+    setProducts(b.sort(compareValues("productDto.productPrice")));
+    console.log(products);
   }
 
   return (
@@ -60,7 +91,7 @@ function ListProduct(props) {
                       </span>
                       <span className="shopee-input-group__append">
                         <div className="shopee-input">
-                          <div className="shopee-input__inner shopee-input__inner--normal">
+                          <div className="shopee-input__inner shopee-input__inner--normal search__input">
                             <input
                               type="text"
                               placeholder="Nhập vào"
@@ -71,7 +102,28 @@ function ListProduct(props) {
                               max="Infinity"
                               min="-Infinity"
                               className="shopee-input__input"
+                              value={searchTerm}
+                              onChange={(e) => setSearchTerm(e.target.value)}
                             />
+                            <div
+                              className="shopee-input__suffix"
+                              onClick={searchProducts}
+                            >
+                              <i className="shopee-input__suffix-icon shopee-icon">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 32 32"
+                                >
+                                  <path
+                                    d="M31.7 31.7c-.4.4-1 .4-1.3 0l-8.9-8.9c-2.3 2-5.2 3.2-8.5 3.2-7.2 0-13-5.8-13-13S5.8 0 13 0s13 5.8 13 
+                                    13c0 3.2-1.2 6.2-3.2 8.5l8.9 8.9c.4.3.4.9 0 1.3zM24 13c0-6.1-4.9-11-11-11S2 6.9 2 13s4.9 11 11 11 11-4.9 
+                                    11-11z"
+                                    fillRule="evenodd"
+                                    clipRule="evenodd"
+                                  ></path>
+                                </svg>
+                              </i>
+                            </div>
                           </div>
                         </div>
                       </span>
@@ -80,59 +132,13 @@ function ListProduct(props) {
                 </div>
               </div>
             </div>
-            <div className="filter-col-right">
-              <div className="shopee-form-item">
-                <label className="shopee-form-item__label"> Danh mục</label>
-                <div className="shopee-form-item__control">
-                  <div className="shopee-form-item__content">
-                    <div className="category-input-wrapper">
-                      <div className="category-input" edit-text="Sửa">
-                        <div className="category-name hover-pointer has-btn">
-                          <span className="cat-selected-wrapper">
-                            <span className="placeholder">Chọn ngành hàng</span>
-                          </span>
-                        </div>
-                        <button
-                          type="button"
-                          className="edit-btn shopee-button shopee-button--link shopee-button--normal"
-                        >
-                          <i className="shopee-icon">
-                            <svg
-                              dataname="图层 1"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 1024 1024"
-                            >
-                              <path
-                                d="M988.1 316.06a127.07 127.07 0 0 0-37.5-90.5L798.4 73.36c-49.9-49.9-131.1-49.9-181.1 0l-91.8 91.8-.3.3-.3.3-470.2 
-                                470.4a63.47 63.47 0 0 0-18.8 45.2v242.7a64.06 64.06 0 0 0 64 64h242.8a63.47 63.47 0 0 0 45.2-18.8l470.6-470.6 
-                                92.1-92.1a127.07 127.07 0 0 0 37.5-90.5zm-842.9 320l402.7-402.7 242.8 242.7-402.8 402.8zm-45.3 288v-242.7l242.7 
-                                242.7zm805.5-562.7l-69.5 69.4-242.7-242.7 69.5-69.5a64.22 64.22 0 0 1 90.6 0l152.2 152.2a64.37 64.37 0 0 1-.1 90.6z"
-                                dataname="Layer 1"
-                              ></path>
-                            </svg>
-                          </i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="actions">
-            <button
-              type="button"
-              className="shopee-button shopee-button--primary shopee-button--normal"
+
+            <span
+              className="shopee-button shopee-button--primary shopee-button--large reset"
+              onClick={resetProducts}
             >
-              <span>Tìm</span>
-            </button>
-            <button
-              type="button"
-              className="shopee-button shopee-button--normal"
-              style={{ marginLeft: "16px" }}
-            >
-              <span>Nhập Lại</span>
-            </button>
+              Làm mới
+            </span>
           </div>
         </form>
       </div>
@@ -156,8 +162,7 @@ function ListProduct(props) {
             </div>
           </div>
           <div className="grid-right right">
-            <button
-              type="button"
+            <div
               className="add-action shopee-button shopee-button--primary shopee-button--large"
               onClick={redic}
             >
@@ -167,7 +172,7 @@ function ListProduct(props) {
                 </svg>
               </i>
               <span>Thêm 1 sản phẩm mới</span>
-            </button>
+            </div>
             <div className="batch-action shopee-dropdown">
               <button
                 type="button"
@@ -176,7 +181,11 @@ function ListProduct(props) {
                 <span>Công cụ Xử lý sắp xếp</span>
                 <i className="shopee-icon" style={{ marginLeft: "5px" }}>
                   <svg viewBox="0 0 32 32">
-                    <path d="M28.2 11.1l-10.9 12s0 .1-.1.2c-.2.2-.5.3-.7.3-.3 0-.5-.1-.7-.3 0 0 0-.1-.1-.2l-10.9-12c-.4-.4-.4-1 0-1.3.4-.4 1-.4 1.3 0l10.4 11.3L26.9 9.8c.4-.4 1-.4 1.3 0 .4.4.4 1 0 1.3z"></path>
+                    <path
+                      d="M28.2 11.1l-10.9 12s0 .1-.1.2c-.2.2-.5.3-.7.3-.3 
+                    0-.5-.1-.7-.3 0 0 0-.1-.1-.2l-10.9-12c-.4-.4-.4-1 0-1.3.4-.4 
+                    1-.4 1.3 0l10.4 11.3L26.9 9.8c.4-.4 1-.4 1.3 0 .4.4.4 1 0 1.3z"
+                    ></path>
                   </svg>
                 </i>
               </button>
@@ -184,15 +193,20 @@ function ListProduct(props) {
                 <ul className="shopee-dropdown-menu">
                   <li
                     className="mass-update-item shopee-dropdown-item"
-                    onClick={() =>sortBySoldQuantity(products)
-                    }
+                    onClick={() => sortByName(products)}
                   >
                     Sắp xếp theo tên
                   </li>
-                  <li className="mass-update-item shopee-dropdown-item">
+                  <li
+                    className="mass-update-item shopee-dropdown-item"
+                    onClick={() => sortByPrice(products)}
+                  >
                     Sắp xếp theo giá
                   </li>
-                  <li className="mass-update-item shopee-dropdown-item">
+                  <li
+                    className="mass-update-item shopee-dropdown-item"
+                    onClick={() => sortBySoldQuantity(products)}
+                  >
                     Theo số lượng đã bán
                   </li>
                 </ul>
@@ -231,56 +245,7 @@ function ListProduct(props) {
               </div>
               <div className="fixed-placeholder"></div>
             </div>
-            {!products ? (
-              <div className="product-no-result">
-                <span className="sprites-product-list-no-product"></span>
-                <div className="text">Không tìm thấy sản phẩm</div>
-              </div>
-            ) : (
-              <div>
-                {products &&
-                  products.map((item) => (
-                    <div className="product-result" key={item.productDto.id}>
-                      <div className="product-name">
-                        {item.productDto.productName}
-                      </div>
-                      <div className="product-info">
-                        <div className="product-price">
-                          {item.productDto.productPrice}
-                        </div>
-                        <div className="product-discount">
-                          {item.productDto.discount}
-                        </div>
-                        <div className="product-quantity">
-                          {item.productDto.quantity}
-                        </div>
-                        <div className="product-sold">{item.soldQuantity}</div>
-                      </div>
-                      <div className="edit-product">
-                        <button
-                          type="button"
-                          className="edit-btn shopee-button shopee-button--link shopee-button--normal"
-                        >
-                          <i className="shopee-icon">
-                            <svg
-                              data-name="图层 1"
-                              xmlns="http://www.w3.org/2000/svg"
-                              viewBox="0 0 1024 1024"
-                            >
-                              <path
-                                d="M988.1 316.06a127.07 127.07 0 0 0-37.5-90.5L798.4 73.36c-49.9-49.9-131.1-49.9-181.1 0l-91.8 91.8-.3.3-.3.3-470.2 470.4a63.47 63.47 0 0 0-18.8 45.2v242.7a64.06 64.06 
-                                0 0 0 64 64h242.8a63.47 63.47 0 0 0 45.2-18.8l470.6-470.6 92.1-92.1a127.07 127.07 0 0 0 37.5-90.5zm-842.9 320l402.7-402.7 242.8 242.7-402.8 402.8zm-45.3 288v-242.7l242.7 
-                                242.7zm805.5-562.7l-69.5 69.4-242.7-242.7 69.5-69.5a64.22 64.22 0 0 1 90.6 0l152.2 152.2a64.37 64.37 0 0 1-.1 90.6z"
-                                data-name="Layer 1"
-                              ></path>
-                            </svg>
-                          </i>
-                        </button>
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            )}
+            <Product products={products} />
           </div>
         </div>
       </div>
