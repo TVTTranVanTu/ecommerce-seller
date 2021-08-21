@@ -1,8 +1,23 @@
 import productAPI from "../Api/productApi";
 import {
+  PRODUCT_ACTIVE_LIST_FAIL,
+  PRODUCT_ACTIVE_LIST_REQUEST,
+  PRODUCT_ACTIVE_LIST_SUCCESS,
   PRODUCT_ADD_FAIL,
   PRODUCT_ADD_REQUEST,
   PRODUCT_ADD_SUCCESS,
+  PRODUCT_DELETE_FAIL,
+  PRODUCT_DELETE_REQUEST,
+  PRODUCT_DELETE_SUCCESS,
+  PRODUCT_DETAILS_FAIL,
+  PRODUCT_DETAILS_REQUEST,
+  PRODUCT_DETAILS_SUCCESS,
+  PRODUCT_DISABLE_LIST_FAIL,
+  PRODUCT_DISABLE_LIST_REQUEST,
+  PRODUCT_DISABLE_LIST_SUCCESS,
+  PRODUCT_EMPTY_LIST_FAIL,
+  PRODUCT_EMPTY_LIST_REQUEST,
+  PRODUCT_EMPTY_LIST_SUCCESS,
   PRODUCT_LIST_FAIL,
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
@@ -11,14 +26,14 @@ import {
   PRODUCT_UPDATE_SUCCESS,
 } from "../constants/productContant";
 
-export const listProductsAction = () => async (dispatch, getstate) => {
+export const listProductsAction = (param) => async (dispatch, getstate) => {
   dispatch({ type: PRODUCT_LIST_REQUEST });
   const {
     userSignin: { userInfo },
   } = getstate();
   const id = userInfo.userDto.id;
   try {
-    const data = await productAPI.getAll(id);
+    const data = await productAPI.getAll(id, param);
     dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -62,5 +77,80 @@ export const updateProduct = (product) => async (dispatch, getState) => {
         ? error.response.data.message
         : error.message;
     dispatch({ type: PRODUCT_UPDATE_FAIL, error: message });
+  }
+};
+
+export const deleteProduct = (id) => async (dispatch) => {
+  dispatch({ type: PRODUCT_DELETE_REQUEST, payload: id });
+  try {
+    const { data } = await productAPI.delete(id);
+    dispatch({ type: PRODUCT_DELETE_SUCCESS });
+  } catch (error) {
+    const message =
+      error.response && error.response.data.message
+        ? error.response.data.message
+        : error.message;
+    dispatch({ type: PRODUCT_DELETE_FAIL, payload: message });
+  }
+};
+
+export const listProductsActiveAction = () => async (dispatch, getstate) => {
+  dispatch({ type: PRODUCT_ACTIVE_LIST_REQUEST });
+  const {
+    userSignin: { userInfo },
+  } = getstate();
+  const id = userInfo.userDto.id;
+  try {
+    const data = await productAPI.getActive(id);
+    dispatch({ type: PRODUCT_ACTIVE_LIST_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_ACTIVE_LIST_FAIL,
+      payload: error.message,
+    });
+  }
+};
+
+export const listProductsEmptyAction = () => async (dispatch, getstate) => {
+  dispatch({ type: PRODUCT_EMPTY_LIST_REQUEST });
+  const {
+    userSignin: { userInfo },
+  } = getstate();
+  const id = userInfo.userDto.id;
+  try {
+    const data = await productAPI.getEmpty(id);
+    dispatch({ type: PRODUCT_EMPTY_LIST_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_EMPTY_LIST_FAIL,
+      payload: error.message,
+    });
+  }
+};
+
+export const listProductsDisableAction = () => async (dispatch, getstate) => {
+  dispatch({ type: PRODUCT_DISABLE_LIST_REQUEST });
+  const {
+    userSignin: { userInfo },
+  } = getstate();
+  const id = userInfo.userDto.id;
+  try {
+    const data = await productAPI.getDisnable(id);
+    dispatch({ type: PRODUCT_DISABLE_LIST_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({
+      type: PRODUCT_DISABLE_LIST_FAIL,
+      payload: error.message,
+    });
+  }
+};
+
+export const detailProduct = (id) => async (dispatch) => {
+  dispatch({ type: PRODUCT_DETAILS_REQUEST });
+  try {
+    const { data } = await productAPI.getDetailProduct(id);
+    dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: PRODUCT_DETAILS_FAIL, payload: error.message });
   }
 };

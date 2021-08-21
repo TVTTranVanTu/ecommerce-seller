@@ -2,7 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { listCategory, listSubCategory } from "../../../actions/categoryAction";
-import { addProducts } from "../../../actions/productAction";
+import {
+  addProducts,
+  listProductsAction,
+} from "../../../actions/productAction";
 import { PRODUCT_ADD_RESET } from "../../../constants/productContant";
 import { storage } from "../../../firebase/firebase";
 function AddProducts(props) {
@@ -65,24 +68,15 @@ function AddProducts(props) {
       },
     },
   };
-  const productCreate = useSelector((state) => state.productCreate);
-  const {
-    loading: loadingCreate,
-    error: errorCreate,
-    success: successCreate,
-    product: createdProduct,
-  } = productCreate;
 
   const postproduct = () => {
     dispatch(addProducts(product));
+    history.push(`/product/list-product/all`);
   };
   useEffect(() => {
     dispatch(listCategory());
-    if (successCreate) {
-      dispatch({ type: PRODUCT_ADD_RESET });
-      history.push(`/product/list-product`);
-    }
-  }, [dispatch, createdProduct, history, successCreate]);
+  }, [dispatch]);
+
   return (
     <div className="page">
       <div className="product">

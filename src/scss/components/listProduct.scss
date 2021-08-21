@@ -1,6 +1,7 @@
 .list-panel {
     padding-top: 24px;
     overflow: auto;
+    position: relative;
 }
 .product-list-section {
     margin-left: 24px;
@@ -57,13 +58,10 @@
 .product-checkbox {
     height: auto !important;
 }
-.product-list-item__td {
-    margin-right: 16px;
-}
+
 .product-main {
     display: flex;
     justify-content: flex-start;
-    min-width: 239px;
     max-width: 239px;
     cursor: pointer;
 }
@@ -74,9 +72,7 @@
     padding-bottom: 0 !important;
     align-items: flex-start !important;
 }
-.product-list-item__td {
-    margin-right: 16px;
-}
+
 .product-filter-card {
     margin-bottom: 40px;
     position: relative;
@@ -103,7 +99,6 @@
 .shopee-form-item__label {
     flex-shrink: 0;
     padding: 8px 0;
-    margin-right: 16px;
     line-height: 16px;
     box-sizing: border-box;
 }
@@ -552,7 +547,7 @@ html.VN button {
     flex-wrap: nowrap;
 }
 .product-variation {
-    width: 60%;
+    width: 70%;
     text-align: center;
     padding: 0;
 }
@@ -792,23 +787,27 @@ html.VN button {
     padding-top: 10px;
 }
 .product-name {
-    width: 25%;
+    width: 20%;
     padding-right: 16px;
 }
 .product-info {
     display: flex;
-    width: 60%;
+    width: 70%;
     justify-content: space-between;
 }
 .product-price,
-.product-discount,
 .product-quantity,
-.product-sold {
+.product-sold,
+.product-status {
     width: 15%;
     margin-right: 16px;
 }
+.product-discount {
+    width: 10%;
+    margin-right: 16px;
+}
 .edit-product {
-    width: 15%;
+    width: 10%;
     text-align: center;
 }
 .shopee-button:before {

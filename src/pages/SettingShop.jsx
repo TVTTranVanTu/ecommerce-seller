@@ -6,7 +6,6 @@ import ShopInfo from "../components/contents/shopInfo/ShopInfo";
 function SettingShop(props) {
   const shopInformation = useSelector((state) => state.shopInformation);
   const { loading, error, shopInf } = shopInformation;
-  console.log(shopInf);
 
   const dispatch = useDispatch();
 

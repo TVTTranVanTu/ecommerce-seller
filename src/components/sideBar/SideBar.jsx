@@ -155,7 +155,7 @@ function SideBar(props) {
                 </li>
                 <li className="sidebar-submenu-item">
                   <Link
-                    href="/portal/settings/shop/profile"
+                    to="/portal/settings/shop/profile"
                     className="sidebar-submenu-item-link"
                   >
                     <span>Hồ Sơ Shop</span>
@@ -163,7 +163,7 @@ function SideBar(props) {
                 </li>
                 <li className="sidebar-submenu-item">
                   <Link
-                    href="/portal/decoration"
+                    to="/portal/decoration"
                     className="sidebar-submenu-item-link"
                   >
                     <span>Trang Trí Shop</span>

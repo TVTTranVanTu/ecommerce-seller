@@ -1,5 +1,5 @@
 import React from "react";
-import OrderList from "./components/contents/orderManager/OrderList";
+import OrderManager from "./components/contents/orderManager/OrderManager";
 import AddProducts from "./components/contents/productsManager/AddProducts";
 import BannedProducts from "./components/contents/productsManager/BannedProducts";
 import ShopReview from "./components/contents/shopManager/ShopReview";
@@ -27,7 +27,7 @@ const routes = [
   {
     path: "/portal/sale/order",
     exact: true,
-    main: () => <OrderList />,
+    main: () => <OrderPage />,
   },
   {
     path: "/portal/sale/order?type=cancelled",

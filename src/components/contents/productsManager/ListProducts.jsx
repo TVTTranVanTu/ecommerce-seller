@@ -65,9 +65,9 @@ function ListProduct(props) {
     setProducts(b.sort(compareValues("productDto.productPrice")));
     console.log(products);
   }
-
+  const { opacity } = props;
   return (
-    <div className="list-all">
+    <div className="list-all" style={{ opacity: `${opacity}` }}>
       <div className="product-filter-card product-list-section">
         <form
           autoComplete="off"
@@ -229,13 +229,16 @@ function ListProduct(props) {
                       Giá(VND)
                     </div>
                     <div className="product-list-item__td product-variation__name product-list-header-item text-overflow2 product-discount">
-                      Giảm giá(%)
+                      Giảm giá
                     </div>
                     <div className="shopee-order product-list-item__td product-variation__stock product-list-header-item text-overflow2 product-quantity">
                       Còn lại
                     </div>
                     <div className="shopee-order product-list-item__td product-variation__sales product-list-header-item text-overflow2 product-sold">
                       Đã bán
+                    </div>
+                    <div className="shopee-order product-list-item__td product-variation__sales product-list-header-item text-overflow2 product-status">
+                      Trạng thái
                     </div>
                   </div>
                   <div className="product-action product-list-header-item text-overflow2 edit-product">

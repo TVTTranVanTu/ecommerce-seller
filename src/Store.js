@@ -4,8 +4,14 @@ import {
   categoryListReducer,
   subCategoryListReducer,
 } from "./reducers/categorysReducer";
+import { listOrderReducer } from "./reducers/orderReducer";
 import {
   addProductReducer,
+  productDeleteReducer,
+  productDetailReducer,
+  productListActiveReducer,
+  productListDisableReducer,
+  productListEmptyReducer,
   productListReducer,
   productUpdateReducer,
 } from "./reducers/productReducer";
@@ -30,13 +36,19 @@ const reducer = combineReducers({
   updateShopInfor: updateShopReducer,
   productUpdate: productUpdateReducer,
   listProducts: productListReducer,
+  listProductsActive: productListActiveReducer,
+  listProductsEmpty: productListEmptyReducer,
+  listProductsDisable: productListDisableReducer,
   productCreate: addProductReducer,
+  productDelete: productDeleteReducer,
+  productDetail: productDetailReducer,
   userUpdate: userUpdateReducer,
   userSignin: userSigninReducer,
   userSigninGG: userSigninGGReducer,
   userSigninFB: userSigninFBReducer,
   subCategoryList: subCategoryListReducer,
   categoryList: categoryListReducer,
+  orderList: listOrderReducer,
 });
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(

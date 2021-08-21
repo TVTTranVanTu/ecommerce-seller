@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import FacebookLogin from "react-facebook-login";
 import GoogleLogin from "react-google-login";
 import { siginToFacebook, siginToGoogle, signin } from "../actions/UserAction";
 import MessageBox from "../components/boxInfor/MessageBox";
+import { validPassword, validUserName } from "../regex";
 function SellerLogin(props) {
   const history = useHistory();
+
   function signup(res) {
     const googleresponse = {
       Name: res.profileObj.name,
@@ -41,21 +43,39 @@ function SellerLogin(props) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
+  const [errorUserName, setErrorUserName] = useState(false);
+  const [errorPassword, setErrorPassword] = useState(false);
+
   const userSignin = useSelector((state) => state.userSignin);
   const { loading, error, userInfo } = userSignin;
+  let submit = true;
+  const validateFormLogin = () => {
+    if (!validUserName.test(userName)) {
+      setErrorUserName(true);
+      submit = false;
+    }
+    if (!validPassword.test(password)) {
+      setErrorPassword(true);
+      submit = false;
+    }
+  };
 
   const submidHandler = (e) => {
     e.preventDefault();
-    dispatch(signin(userName, password));
+    validateFormLogin();
+    submit && dispatch(signin(userName, password));
   };
+
   const responseGoogle = (response) => {
-    var res = response.profileObj;
-    signup(response);
+    if (response) {
+      signup(response);
+    }
   };
 
   const responseFacebook = (response) => {
-    var res = response.profileObj;
-    signupFB(response);
+    if (response) {
+      signupFB(response);
+    }
   };
   useEffect(() => {
     if (data) {
@@ -73,7 +93,10 @@ function SellerLogin(props) {
         dispatch(signin(datafb.username, datafb.password));
       }
     }
-  }, [props.history, userInfo, data, datafb]);
+  }, [dispatch, userInfo, data, datafb]);
+  useEffect(() => {
+    submit = true;
+  }, [errorUserName, errorPassword]);
   return (
     <div className="seller-login">
       <div className="container">
@@ -103,8 +126,14 @@ function SellerLogin(props) {
                       id="username"
                       placeholder="Nhập vào tên tài khoản ..."
                       required
-                      onChange={(e) => setUserName(e.target.value)}
+                      onChange={(e) => {
+                        setUserName(e.target.value);
+                        setErrorUserName(false);
+                      }}
                     ></input>
+                    {errorUserName && (
+                      <p className="invalid">Tên đăng nhập không hợp lệ!</p>
+                    )}
                   </div>
                   <div className="mr__bt">
                     <input
@@ -113,8 +142,14 @@ function SellerLogin(props) {
                       id="password"
                       placeholder="Nhập vào mật khẩu ..."
                       required
-                      onChange={(e) => setPassword(e.target.value)}
+                      onChange={(e) => {
+                        setPassword(e.target.value);
+                        setErrorPassword(false);
+                      }}
                     ></input>
+                    {errorPassword && (
+                      <p className="invalid">Mật khẩu không hợp lệ!</p>
+                    )}
                   </div>
                   <button
                     className="mr__bt ant-btn ant-btn-primary btn btn_orange w100"

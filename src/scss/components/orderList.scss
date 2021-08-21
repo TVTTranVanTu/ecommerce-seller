@@ -81,6 +81,7 @@
         }
     }
     .page {
+        padding-bottom: 30px;
         .fulfillment-order-page-content {
             .order-list {
                 position: relative;
@@ -173,6 +174,8 @@
                     .order-list-section {
                         margin-left: 24px;
                         margin-right: 24px;
+                        padding-bottom: 10px;
+
                         .shopee-fixed-top-card {
                             .fixed-container {
                                 top: 112px;
@@ -186,46 +189,60 @@
                                     font-size: 14px;
                                     border: 1px solid #e8e8e8;
                                     .item-product {
-                                        margin-right: 16px;
-                                        min-width: 370px;
-                                        max-width: 370px;
-                                        flex: 1;
+                                        width: 25%;
                                     }
                                     .item-total {
-                                        margin-right: 106px;
-                                        min-width: 96px;
+                                        width: 15%;
+                                        text-align: center;
                                     }
                                     .item-status {
-                                        margin-right: 66px;
                                         align-items: center;
-                                        min-width: 182px;
-                                        max-width: 182px;
-                                        .item-countdown {
-                                            margin-left: 9px;
-                                        }
-                                        .item-countdown:before {
-                                            content: "";
-                                            display: inline-block;
-                                            margin-right: 9px;
-                                            width: 0;
-                                            height: 14px;
-                                            border-left: 1px solid #e8e8e8;
-                                            vertical-align: -3px;
-                                        }
+                                        text-align: center;
+                                        width: 20%;
                                     }
+                                    .item-countdown {
+                                        width: 30%;
+                                        text-align: center;
+                                    }
+
                                     .item-channel {
                                         margin-right: 16px;
                                         color: #333;
                                         word-break: break-all;
-                                        min-width: 144px;
-                                        max-width: 144px;
                                     }
                                     .item-action {
-                                        min-width: 168px;
-                                        max-width: 168px;
                                         text-align: center;
+                                        width: 10%;
                                     }
                                 }
+                            }
+                        }
+                        .product-result {
+                            display: flex;
+                            align-items: flex-start;
+                            justify-content: space-between;
+                            padding-left: 16px;
+                            padding-right: 16px;
+                            padding-top: 10px;
+                            .product-name {
+                                width: 25%;
+                            }
+                            .product-quantity {
+                                width: 15%;
+                                text-align: center;
+                            }
+                            .product-status {
+                                width: 20%;
+                                text-align: center;
+                            }
+                            .created-at {
+                                width: 30%;
+                                text-align: center;
+                            }
+
+                            .edit-product {
+                                text-align: center;
+                                width: 10%;
                             }
                         }
                         .no-data {

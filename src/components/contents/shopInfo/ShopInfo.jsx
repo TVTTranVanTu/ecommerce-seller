@@ -8,6 +8,7 @@ import Avatar from "../../../assets/image/avatar.jpg";
 import { updateInforAction } from "../../../actions/shopAction";
 import { storage } from "../../../firebase/firebase";
 import { validPhoneNumber, validUserName } from "../../../regex";
+import { useEffect } from "react";
 
 function ShopInfo(props) {
   const shopInf = props.shopInf;
@@ -27,12 +28,15 @@ function ShopInfo(props) {
   const [selection, setSelection] = useState("");
   const [errPhoneNumber, setErrPhoneNumber] = useState(false);
   const [errShopName, setErrShopName] = useState(false);
+  let submit = true;
   const validate = () => {
     if (!validPhoneNumber.test(phonenumber)) {
       setErrPhoneNumber(true);
+      submit = false;
     }
     if (!validUserName.test(shopname)) {
       setErrShopName(true);
+      submit = false;
     }
   };
 
@@ -84,12 +88,15 @@ function ShopInfo(props) {
     };
     if (avatar && shopname && phonenumber && address) {
       validate();
-      if (errShopName === false && errPhoneNumber === false) {
+      if (submit) {
         dispatch(updateInforAction(postShopInfor));
         redict();
       }
     }
   };
+  useEffect(() => {
+    submit = true;
+  }, [errShopName, errPhoneNumber]);
   return (
     <div className="shop-profile">
       <div className="header shop-profile-header">
@@ -248,7 +255,7 @@ function ShopInfo(props) {
                                 </span>
                               </div>
                             </div>
-                            {errPhoneNumber === false ? (
+                            {errPhoneNumber === true ? (
                               <p className="invalid">Phone number is invalid</p>
                             ) : (
                               <p className="valid">Phone number is valid</p>
