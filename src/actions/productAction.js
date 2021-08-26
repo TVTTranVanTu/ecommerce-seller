@@ -1,8 +1,5 @@
 import productAPI from "../Api/productApi";
 import {
-  PRODUCT_ACTIVE_LIST_FAIL,
-  PRODUCT_ACTIVE_LIST_REQUEST,
-  PRODUCT_ACTIVE_LIST_SUCCESS,
   PRODUCT_ADD_FAIL,
   PRODUCT_ADD_REQUEST,
   PRODUCT_ADD_SUCCESS,
@@ -12,12 +9,6 @@ import {
   PRODUCT_DETAILS_FAIL,
   PRODUCT_DETAILS_REQUEST,
   PRODUCT_DETAILS_SUCCESS,
-  PRODUCT_DISABLE_LIST_FAIL,
-  PRODUCT_DISABLE_LIST_REQUEST,
-  PRODUCT_DISABLE_LIST_SUCCESS,
-  PRODUCT_EMPTY_LIST_FAIL,
-  PRODUCT_EMPTY_LIST_REQUEST,
-  PRODUCT_EMPTY_LIST_SUCCESS,
   PRODUCT_LIST_FAIL,
   PRODUCT_LIST_REQUEST,
   PRODUCT_LIST_SUCCESS,
@@ -43,7 +34,7 @@ export const listProductsAction = (param) => async (dispatch, getstate) => {
   }
 };
 
-export const addProducts = (product) => async (dispatch, getstate) => {
+export const addProductAction = (product) => async (dispatch, getstate) => {
   dispatch({
     type: PRODUCT_ADD_REQUEST,
   });
@@ -62,14 +53,10 @@ export const addProducts = (product) => async (dispatch, getstate) => {
   }
 };
 
-export const updateProduct = (product) => async (dispatch, getState) => {
+export const updateProduct = (id, product) => async (dispatch) => {
   dispatch({ type: PRODUCT_UPDATE_REQUEST, payload: product });
-  const {
-    userSignin: { userInfo },
-  } = getState();
-  const token = userInfo.jwttoken;
   try {
-    const { data } = await productAPI.update(product, token);
+    const { data } = await productAPI.update(id, product);
     dispatch({ type: PRODUCT_UPDATE_SUCCESS, payload: data });
   } catch (error) {
     const message =
@@ -94,61 +81,10 @@ export const deleteProduct = (id) => async (dispatch) => {
   }
 };
 
-export const listProductsActiveAction = () => async (dispatch, getstate) => {
-  dispatch({ type: PRODUCT_ACTIVE_LIST_REQUEST });
-  const {
-    userSignin: { userInfo },
-  } = getstate();
-  const id = userInfo.userDto.id;
-  try {
-    const data = await productAPI.getActive(id);
-    dispatch({ type: PRODUCT_ACTIVE_LIST_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({
-      type: PRODUCT_ACTIVE_LIST_FAIL,
-      payload: error.message,
-    });
-  }
-};
-
-export const listProductsEmptyAction = () => async (dispatch, getstate) => {
-  dispatch({ type: PRODUCT_EMPTY_LIST_REQUEST });
-  const {
-    userSignin: { userInfo },
-  } = getstate();
-  const id = userInfo.userDto.id;
-  try {
-    const data = await productAPI.getEmpty(id);
-    dispatch({ type: PRODUCT_EMPTY_LIST_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({
-      type: PRODUCT_EMPTY_LIST_FAIL,
-      payload: error.message,
-    });
-  }
-};
-
-export const listProductsDisableAction = () => async (dispatch, getstate) => {
-  dispatch({ type: PRODUCT_DISABLE_LIST_REQUEST });
-  const {
-    userSignin: { userInfo },
-  } = getstate();
-  const id = userInfo.userDto.id;
-  try {
-    const data = await productAPI.getDisnable(id);
-    dispatch({ type: PRODUCT_DISABLE_LIST_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({
-      type: PRODUCT_DISABLE_LIST_FAIL,
-      payload: error.message,
-    });
-  }
-};
-
 export const detailProduct = (id) => async (dispatch) => {
-  dispatch({ type: PRODUCT_DETAILS_REQUEST });
+  dispatch({ type: PRODUCT_DETAILS_REQUEST, payload: id });
   try {
-    const { data } = await productAPI.getDetailProduct(id);
+    const data = await productAPI.getDetailProduct(id);
     dispatch({ type: PRODUCT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: PRODUCT_DETAILS_FAIL, payload: error.message });

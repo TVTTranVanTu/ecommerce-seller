@@ -222,6 +222,7 @@
                             align-items: flex-start;
                             justify-content: space-between;
                             padding-left: 16px;
+                            position: relative;
                             padding-right: 16px;
                             padding-top: 10px;
                             .product-name {
@@ -244,6 +245,45 @@
                                 text-align: center;
                                 width: 10%;
                             }
+                        }
+                        .select-status {
+                            width: 200px;
+                            padding: 10px;
+                            position: absolute;
+                            right: 0;
+                            border: 1px solid #e8e8e8;
+                            border-radius: 3px;
+                            background: #fff;
+                            z-index: 10;
+                            margin-top: 20px;
+                            .select-title {
+                                text-align: center;
+                                padding: 5px;
+                                border-bottom: 1px solid #e8e8e8;
+                            }
+                            .status-item {
+                                margin-top: 5px;
+                                padding: 5px;
+                                cursor: pointer;
+                            }
+                            .status-item:hover {
+                                color: #ee4d2d;
+                            }
+                            .status-item.active {
+                                color: #ee4d2d;
+                            }
+                        }
+                        .button-confirm {
+                            text-align: center;
+                            background: #ee4d2d;
+                            color: #fff;
+                        }
+                        .button-canceled {
+                            background: #e5e5e5;
+                            margin-right: 10px;
+                        }
+                        .hideBox {
+                            display: none;
                         }
                         .no-data {
                             padding: 124px 0;

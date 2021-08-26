@@ -1,11 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { deleteProduct } from "../../../actions/productAction";
 
 function Product(props) {
   const dispatch = useDispatch();
   const { products } = props;
-
+  const history = useHistory();
   const deleteHandler = (product) => {
     dispatch(deleteProduct(product.id));
   };
@@ -56,6 +57,7 @@ function Product(props) {
                   <button
                     type="button"
                     className="edit-btn shopee-button shopee-button--link shopee-button--normal mr-10"
+                    onClick={() => history.push(`/product/${item.id}/edit`)}
                   >
                     <i className="shopee-icon">
                       <svg

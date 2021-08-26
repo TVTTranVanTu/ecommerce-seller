@@ -4,14 +4,11 @@ import {
   categoryListReducer,
   subCategoryListReducer,
 } from "./reducers/categorysReducer";
-import { listOrderReducer } from "./reducers/orderReducer";
+import { editStatusReducer, listOrderReducer } from "./reducers/orderReducer";
 import {
   addProductReducer,
   productDeleteReducer,
   productDetailReducer,
-  productListActiveReducer,
-  productListDisableReducer,
-  productListEmptyReducer,
   productListReducer,
   productUpdateReducer,
 } from "./reducers/productReducer";
@@ -36,10 +33,8 @@ const reducer = combineReducers({
   updateShopInfor: updateShopReducer,
   productUpdate: productUpdateReducer,
   listProducts: productListReducer,
-  listProductsActive: productListActiveReducer,
-  listProductsEmpty: productListEmptyReducer,
-  listProductsDisable: productListDisableReducer,
   productCreate: addProductReducer,
+  editStatusOrder: editStatusReducer,
   productDelete: productDeleteReducer,
   productDetail: productDetailReducer,
   userUpdate: userUpdateReducer,

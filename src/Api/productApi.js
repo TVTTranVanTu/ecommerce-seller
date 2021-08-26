@@ -12,29 +12,17 @@ export const productAPI = {
     const url = `/home/posts/products${param}?userId=${id}`;
     return axiosClient.get(url);
   },
-  getActive: (id) => {
-    const url = `/home/posts/products/active?userId=${id}`;
-    return axiosClient.get(url);
-  },
-  getEmpty: (id) => {
-    const url = `/home/posts/products/empty?userId=${id}`;
-    return axiosClient.get(url);
-  },
-  getDisnable: (id) => {
-    const url = `/home/posts/products/disable?userId=${id}`;
-    return axiosClient.get(url);
-  },
   getDetailProduct: (id) => {
     const url = `/home/posts/products/${id}`;
     return axiosClient.get(url);
   },
-  update: (id) => {
+  update: (id, payload) => {
     const url = `/home/posts/products/${id}`;
-    return axiosClient.put(url);
+    return axiosClient.put(url, payload);
   },
-  delete: (id) => {
+  delete: (id, payload) => {
     const url = `/home/posts/${id}`;
-    return axiosClient.delete(url);
+    return axiosClient.delete(url, payload);
   },
 };
 

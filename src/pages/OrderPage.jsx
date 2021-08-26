@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import OrderManager from "../components/contents/orderManager/OrderManager";
 import { useDispatch, useSelector } from "react-redux";
 import { shopInforAction } from "../actions/shopAction";
+import LoadingBox from "../components/boxInfor/LoadingBox";
 
 function OrderPage(props) {
   const dispatch = useDispatch();
@@ -18,7 +19,10 @@ function OrderPage(props) {
   return (
     <>
       {shopInfLoading ? (
-        ""
+        <div>
+          <LoadingBox />
+          <OrderManager shopInf={{}} />
+        </div>
       ) : shopInfError ? (
         ""
       ) : shopInf ? (

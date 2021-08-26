@@ -2,14 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { listCategory, listSubCategory } from "../../../actions/categoryAction";
-import {
-  addProductAction,
-  detailProduct,
-} from "../../../actions/productAction";
+import { detailProduct, updateProduct } from "../../../actions/productAction";
 import { storage } from "../../../firebase/firebase";
 import LoadingBox from "../../boxInfor/LoadingBox";
 import { PRODUCT_UPDATE_RESET } from "../../../constants/productContant";
-function AddProducts(props) {
+function EditProduct(props) {
   const [category, setCategory] = useState("");
   const [subCategory, setSubCategory] = useState("");
   const [postTitle, setPostTitle] = useState("");
@@ -23,22 +20,52 @@ function AddProducts(props) {
   const [urlImage, setUrlImage] = useState("");
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
+  const id = props.match.params.id;
   const categoryList = useSelector((state) => state.categoryList);
   const { loading, error, categorys } = categoryList;
 
   const subCategoryList = useSelector((state) => state.subCategoryList);
   const { loading1, err, subCategories } = subCategoryList;
-  const history = useHistory();
 
-  const productCreate = useSelector((state) => state.productCreate);
+  const productDetail = useSelector((state) => state.productDetail);
   const {
-    loading: loadingCreate,
-    error: errorCreate,
-    success: successCreate,
-    product: createdProduct,
-  } = productCreate;
+    loading: loadingProductDetail,
+    error: errorProductDetail,
+    product,
+  } = productDetail;
 
+  const productUpdate = useSelector((state) => state.productUpdate);
+  const {
+    loading: updateLoading,
+    error: updateError,
+    success: successUpdate,
+  } = productUpdate;
+
+  useEffect(() => {
+    if (successUpdate) {
+      history.push(`/product/list-product/all`);
+    }
+  }, [dispatch, history, successUpdate]);
+
+  useEffect(() => {
+    if (product && Object.keys(product).length === 0) {
+      dispatch({ type: PRODUCT_UPDATE_RESET });
+      dispatch(detailProduct(id));
+    }
+    if (product && Object.keys(product).length > 0) {
+      const productDto = product.productDto;
+      setUrlImage(productDto?.productThumbnail);
+      setdiscount(productDto?.discount);
+      setPostTitle(product.postTitle);
+      setProductThumbnail(productDto?.productThumbnail);
+      setProductName(productDto?.productName);
+      setProductPrice(productDto?.productPrice);
+      setQuantity(productDto?.quantity);
+      setPostDescription(product.postDescription);
+    }
+  }, [product]);
   const handleChangeImage = (event) => {
     if (event.target.files[0]) {
       const productThumbnail = event.target.files[0];
@@ -67,34 +94,29 @@ function AddProducts(props) {
   const productInf = {
     postTitle: postTitle,
     postDescription: postDescription,
-    product: {
+    productDto: {
       productThumbnail: urlImage,
       productPrice: productPrice,
       productName: productName,
       quantity: quantity,
       discount: discount,
-      subCategory: {
-        id: subProductId,
-      },
+      avgRating: null,
     },
   };
 
-  const postproduct = () => {
-    dispatch(addProductAction(productInf));
+  const editproduct = () => {
+    console.log(productInf);
+    dispatch(updateProduct(id, productInf));
   };
-  useEffect(() => {
-    if (successCreate) {
-      history.push(`/product/list-product/all`);
-    }
-  }, [dispatch, history, productCreate, successCreate]);
-
   useEffect(() => {
     dispatch(listCategory());
   }, [dispatch]);
-
   return (
     <div className="page">
-      {loadingCreate && <LoadingBox></LoadingBox>}
+      {loadingProductDetail && <LoadingBox></LoadingBox>}
+      {updateLoading && <LoadingBox></LoadingBox>}
+      {errorProductDetail && ""}
+      {updateError && ""}
       <div className="product">
         <div className="product-category">
           <div className="old-wrapper content">
@@ -604,9 +626,9 @@ function AddProducts(props) {
             <button
               type="button"
               className="shopee-button shopee-button--primary shopee-button--large button-right"
-              onClick={postproduct}
+              onClick={editproduct}
             >
-              <span>Thêm</span>
+              <span>Lưu</span>
             </button>
           </div>
         </div>
@@ -615,4 +637,4 @@ function AddProducts(props) {
   );
 }
 
-export default AddProducts;
+export default EditProduct;

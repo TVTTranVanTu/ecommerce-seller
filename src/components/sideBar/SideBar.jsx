@@ -49,22 +49,6 @@ function SideBar(props) {
                     <span>Tất cả</span>
                   </Link>
                 </li>
-                <li className="sidebar-submenu-item">
-                  <Link
-                    to="/portal/sale/order?type=cancelled"
-                    className="sidebar-submenu-item-link"
-                  >
-                    <span>Đơn huỷ</span>
-                  </Link>
-                </li>
-                <li className="sidebar-submenu-item">
-                  <Link
-                    to="/portal/sale/returnlist"
-                    className="sidebar-submenu-item-link"
-                  >
-                    <span>Trả Hàng / Hoàn Tiền</span>
-                  </Link>
-                </li>
               </ul>
             </li>
             <li className="sidebar-menu-box">

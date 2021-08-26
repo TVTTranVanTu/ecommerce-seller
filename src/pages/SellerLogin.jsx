@@ -67,6 +67,7 @@ function SellerLogin(props) {
   };
 
   const responseGoogle = (response) => {
+    var res = response.profileObj;
     if (response) {
       signup(response);
     }
@@ -79,7 +80,7 @@ function SellerLogin(props) {
   };
   useEffect(() => {
     if (data) {
-      if (data.username === null) {
+      if (data.username === "") {
         history.push("/form-info");
       } else {
         dispatch(signin(data.username, data.password));
@@ -93,7 +94,7 @@ function SellerLogin(props) {
         dispatch(signin(datafb.username, datafb.password));
       }
     }
-  }, [dispatch, userInfo, data, datafb]);
+  }, [dispatch, history, userInfo, data, datafb]);
   useEffect(() => {
     submit = true;
   }, [errorUserName, errorPassword]);

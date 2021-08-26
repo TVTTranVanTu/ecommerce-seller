@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  listProductsAction,
-  listProductsActiveAction,
-  listProductsDisableAction,
-  listProductsEmptyAction,
-} from "../actions/productAction";
+import { useHistory } from "react-router";
+
+import { listProductsAction } from "../actions/productAction";
 import LoadingBox from "../components/boxInfor/LoadingBox";
 import ListProduct from "../components/contents/productsManager/ListProducts";
 import {
@@ -15,26 +12,15 @@ import {
 function ProductManage(props) {
   const [traslate, setTranslate] = useState(0);
   const [active, setActive] = useState(0);
-  const [param, setParam] = useState("");
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const listProducts = useSelector((state) => state.listProducts);
-  const listProductsActive = useSelector((state) => state.listProductsActive);
-  const listProductsEmpty = useSelector((state) => state.listProductsEmpty);
-  const listProductsDisable = useSelector((state) => state.listProductsDisable);
 
-  const { loading, error, products } =
-    active === 0
-      ? listProducts
-      : active === 1
-      ? listProductsActive
-      : active === 2
-      ? listProductsEmpty
-      : active === 3
-      ? listProductsDisable
-      : listProducts;
+  const { loading, error, products } = listProducts;
 
   const listsProducts = products;
+
   const productCreate = useSelector((state) => state.productCreate);
   const {
     loading: loadingCreate,
@@ -42,7 +28,6 @@ function ProductManage(props) {
     success: successCreate,
     product: createdProduct,
   } = productCreate;
-  console.log(successCreate);
 
   const productDelete = useSelector((state) => state.productDelete);
   const {
@@ -58,23 +43,20 @@ function ProductManage(props) {
     if (successDelete) {
       dispatch({ type: PRODUCT_DELETE_RESET });
     }
-    dispatch(listProductsAction(param));
-    dispatch(listProductsActiveAction());
-    dispatch(listProductsEmptyAction());
-    dispatch(listProductsDisableAction());
-  }, [dispatch, successDelete, successCreate, createdProduct]);
+    dispatch(listProductsAction(""));
+  }, [dispatch, history, createdProduct, successDelete, successCreate]);
 
   const dispatchListAll = () => {
-    dispatch(listProductsAction());
+    dispatch(listProductsAction(""));
   };
   const dispatchListActive = () => {
-    dispatch(listProductsActiveAction());
+    dispatch(listProductsAction("/active"));
   };
   const dispatchListEmpty = () => {
-    dispatch(listProductsEmptyAction());
+    dispatch(listProductsAction("/empty"));
   };
   const dispatchListDisable = () => {
-    dispatch(listProductsDisableAction());
+    dispatch(listProductsAction("/disable"));
   };
   return (
     <div className="product-manager">
@@ -99,11 +81,10 @@ function ProductManage(props) {
                           onClick={() => {
                             setTranslate(0);
                             setActive(0);
+                            dispatchListAll();
                           }}
                         >
-                          <div className="tabs__tab" onClick={dispatchListAll}>
-                            Tất cả
-                          </div>
+                          <div className="tabs__tab">Tất cả</div>
                         </div>
                         <div
                           className={
@@ -114,14 +95,10 @@ function ProductManage(props) {
                           onClick={() => {
                             setTranslate(100);
                             setActive(1);
+                            dispatchListActive();
                           }}
                         >
-                          <div
-                            className="tabs__tab"
-                            onClick={dispatchListActive}
-                          >
-                            Đang hoạt động
-                          </div>
+                          <div className="tabs__tab">Đang hoạt động</div>
                         </div>
                         <div
                           className={
@@ -132,14 +109,10 @@ function ProductManage(props) {
                           onClick={() => {
                             setTranslate(215);
                             setActive(2);
+                            dispatchListEmpty();
                           }}
                         >
-                          <div
-                            className="tabs__tab"
-                            onClick={dispatchListEmpty}
-                          >
-                            Hết hàng
-                          </div>
+                          <div className="tabs__tab">Hết hàng</div>
                         </div>
                         <div
                           className={
@@ -150,14 +123,10 @@ function ProductManage(props) {
                           onClick={() => {
                             setTranslate(290);
                             setActive(3);
+                            dispatchListDisable();
                           }}
                         >
-                          <div
-                            className="tabs__tab"
-                            onClick={dispatchListDisable}
-                          >
-                            Đã ẩn
-                          </div>
+                          <div className="tabs__tab">Đã ẩn</div>
                         </div>
                       </div>
                       <div

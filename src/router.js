@@ -2,6 +2,7 @@ import React from "react";
 import OrderManager from "./components/contents/orderManager/OrderManager";
 import AddProducts from "./components/contents/productsManager/AddProducts";
 import BannedProducts from "./components/contents/productsManager/BannedProducts";
+import EditProduct from "./components/contents/productsManager/EditProduct";
 import ShopReview from "./components/contents/shopManager/ShopReview";
 import DashBoardPage from "./pages/DashBoardPage";
 import OrderPage from "./pages/OrderPage";
@@ -43,6 +44,11 @@ const routes = [
     path: "/product/list-product/all",
     exact: true,
     main: () => <ProductManage />,
+  },
+  {
+    path: "/product/:id/edit",
+    exact: true,
+    main: (props) => <EditProduct {...props} />,
   },
   {
     path: "/product/add-product",

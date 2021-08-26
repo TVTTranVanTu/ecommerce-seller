@@ -55,14 +55,9 @@ function ListProduct(props) {
     setProducts(b.sort(compareValues("soldQuantity")));
     console.log(products);
   }
-  function sortByName(a) {
+  function sortByStatus(a) {
     const b = [...a];
-    setProducts(b.sort(compareValues("productDto.productName")));
-    console.log(products);
-  }
-  function sortByPrice(a) {
-    const b = [...a];
-    setProducts(b.sort(compareValues("productDto.productPrice")));
+    setProducts(b.sort(compareValues("status", "desc")));
     console.log(products);
   }
   const { opacity } = props;
@@ -193,15 +188,9 @@ function ListProduct(props) {
                 <ul className="shopee-dropdown-menu">
                   <li
                     className="mass-update-item shopee-dropdown-item"
-                    onClick={() => sortByName(products)}
+                    onClick={() => sortByStatus(products)}
                   >
-                    Sắp xếp theo tên
-                  </li>
-                  <li
-                    className="mass-update-item shopee-dropdown-item"
-                    onClick={() => sortByPrice(products)}
-                  >
-                    Sắp xếp theo giá
+                    Sắp xếp trạng thái
                   </li>
                   <li
                     className="mass-update-item shopee-dropdown-item"
